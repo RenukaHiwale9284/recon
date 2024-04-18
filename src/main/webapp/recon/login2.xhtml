@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<h:outputStylesheet library="webjars" name="primeflex/2.0.0/primeflex.min.css" />
+	</h:head>
+
+	<h:body style="margin-left:50px">
+
+		<style type="text/css">
+			button.ui-button {
+			margin-right: .5rem;
+			}
+
+			.dialog-style-class {
+			width: 50%;
+			height: 70%;
+			}
+		</style>
+
+
+		<h3>CIT Gross Returns Platform</h3>
+		<h:panelGrid columns="3" cellpadding="7" styleClass="p-mb-3">
+		</h:panelGrid>
+
+
+
+		<div class="card">
+			<h:form>
+				<div class="ui-fluid p-formgrid p-grid">
+					<p:messages id="msgs" />
+					<p:outputPanel>
+
+						<div class="p-field p-col-12 p-md-12">
+							<p:outputLabel for="firstname" value="Project Id" />
+							<p:inputNumber id="firstname" value="#{father.pid}" minValue="0" maxValue="10000" decimalPlaces="0" required="true" label="Project Id" />
+
+							<p:message for="firstname" display="icon" />
+						</div>
+
+
+						<div class="p-field p-col-12 p-md-12">
+							<p:outputLabel for="lastname" value="Password" />
+							<p:password id="lastname" value="#{father.pass}" toggleMask="true" redisplay="true" required="true" />
+							<p:message for="lastname" id="msgLastname" display="icon" />
+
+						</div>
+
+
+						<p:commandButton value="Login" update="@form" action="#{father.save}" icon="pi pi-check" />
+					</p:outputPanel>
+				</div>
+			</h:form>
+		</div>
+
+
+	</h:body>
+</html>
+

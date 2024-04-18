@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.anemoi.itr.CellTemplate" table="CellTemplate">
+
+		<composite-id>
+			<key-property name="version" 	column="itrversion" />
+			<key-property name="tab" 		column="sheet" />
+			<key-property name="var" 		column="varName" />
+		</composite-id>		
+
+		<property name="datatype">	<column name="data_type" />	</property>
+		<property name="desc">	<column name="description" />	</property>
+		<property name="row">	<column name="row_num" />	</property>
+		<property name="col">	<column name="col_num" />	</property>
+		<property name="selOpt"> <column name="select_option" />	</property>
+		<property name="validations"> <column name="validations" />	</property>
+		<property name="tag"> <column name="tag_name" />	</property>
+
+		
+		
+	</class>
+	</hibernate-mapping>
+	

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+
+	<class name="com.anemoi.data.RPTRecord" table="rpt_data">
+	
+		
+		<composite-id>
+			<key-property name="projectId" column="projectId" />
+			<key-property name="srNo" column="srNo" />
+		</composite-id>		
+
+
+		<property name="partyName">
+			<column name="partyName" />
+		</property>
+
+		<property name="amount">
+			<column name="amount" />
+		</property>
+
+	</class>
+
+</hibernate-mapping>

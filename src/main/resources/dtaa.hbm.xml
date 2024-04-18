@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.anemoi.data.DtaaTaxRate" table="dtaa">
+	
+		
+		<composite-id>
+			<key-property name="countryCode" column="countryCode" />
+			<key-property name="nature" column="nature" />
+		</composite-id>		
+
+
+		<property name="country">
+			<column name="country" />
+		</property>
+
+		<property name="taxRate1">
+			<column name="taxRate1" />
+		</property>
+
+		<property name="taxRate2">
+			<column name="taxRate2" />
+		</property>
+
+
+	</class>
+
+</hibernate-mapping>

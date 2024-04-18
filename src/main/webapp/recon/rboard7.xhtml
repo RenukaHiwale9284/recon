@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<h:outputStylesheet library="webjars" name="primeflex/2.0.0/primeflex.min.css" />
+	</h:head>
+
+	<h:body style="margin-left:50px">
+
+		<style type="text/css">
+			button.ui-button {
+			margin-right: .5rem;
+			}
+
+			.dialog-style-class {
+			width: 50%;
+			height: 70%;
+
+
+			.ui-steps.custom {
+			margin-bottom: 30px;
+			}
+			.ui-steps.custom .ui-steps-item .ui-menuitem-link {
+			height: 10px;
+			padding: 0 1em;
+			}
+			.ui-steps.custom .ui-steps-item .ui-steps-number {
+			background-color: #0081c2;
+			color: #FFFFFF;
+			display: inline-block;
+			width: 40px;
+			border-radius: 10px;
+			margin-top: -10px;
+			margin-bottom: 20px;
+			margin-bottom: 20px;
+			}
+		</style>
+
+		<p:growl id="messages" />
+		<h:form id="form">
+
+			<p:outputPanel id="gactions">
+				<div class="card">
+
+					<p:commandLink style="margin-right:20px;" id="reset" value="Reset" icon="pi pi-search" action="#{rview.reset}" disabled="true" update="form" />
+					<p:commandLink style="margin-right:20px;" id="validate" value="Validate" icon="pi pi-search" action="#{rview.validate}" disabled="true" update="form" />
+					<p:commandLink style="margin-right:20px;" id="approve" value="Approve" icon="pi pi-search" action="#{rview.approve}" disabled="false" update="messages form" />
+					<p:commandLink style="margin-right:20px;" id="proceed" value="Proceed To next stage" icon="pi pi-search" ajax="false" action="#{rview.proceed}" disabled="false" update="datatabs"
+						oncomplete="window.open('preview.xhtml')" />
+
+
+					<p:steps activeIndex="2" readonly="true" activeStepExecutable="true" styleClass="custom">
+						<p:menuitem value="Document Upload" />
+						<p:menuitem value="Name mapping" />
+						<p:menuitem value="Reconciliation" />
+						<p:menuitem value="Review" ajax="false" />
+						<p:menuitem value="Tax Positions" />
+						<p:menuitem value="ITR6 Preview" />
+						<p:menuitem value="Generate" />
+
+					</p:steps>
+				</div>
+			</p:outputPanel>
+
+
+			<div class="card">
+				<h3>Income transactions</h3>
+
+				<p:dataTable id="incomeTable" var="t" value="#{rview.trans}" sortBy="#{t.partyName}" scrollable="true" scrollHeight="400">
+
+					<p:headerRow field="partyName" expandable="true" expanded="#{t.partyId} !=  1}">
+
+						<p:column headerText="Party">
+							<h:outputText value="#{t.partyName}" />
+						</p:column>
+
+						<p:column headerText="TDS">
+							<h:outputText value="#{rview.getTDSAggr(t.partyId)}" >
+								<f:convertNumber type="currency" />
+							</h:outputText>
+							
+						</p:column>
+
+
+						<p:column headerText="26AS">
+							<h:outputText value="#{rview.get26ASAggr(t.partyId)}" >
+								<f:convertNumber type="currency" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Sales Register">
+							<h:outputText value="#{rview.getSRAggr(t.partyId)}">
+								<f:convertNumber type="currency" />
+							</h:outputText>
+						</p:column>
+
+						<p:column headerText="Related Party">
+							<h:outputText value="#{rview.getRTPAggr(t.partyId)}" >
+								<f:convertNumber type="currency" />
+							</h:outputText>
+						</p:column>
+
+					</p:headerRow>
+
+					<p:column headerText="Party">
+						<h:outputText value="#{t.partyName}" />
+					</p:column>
+
+					<p:column headerText="TDS">
+						<h:outputText value="#{t.tdsDeposited}" >
+								<f:convertNumber type="currency" />
+							</h:outputText>
+					</p:column>
+
+
+					<p:column headerText="26AS Income">
+						<h:outputText value="#{t.source1Amount}" >
+								<f:convertNumber type="currency" />
+							</h:outputText>
+
+
+					</p:column>
+
+					<p:column headerText="Sales Register Income">
+						<h:outputText value="#{t.source2Amount}" >
+								<f:convertNumber type="currency" />
+							</h:outputText>
+					</p:column>
+
+					<p:column headerText="Related Party Income">
+						<h:outputText value="#{t.source3Amount}" >
+								<f:convertNumber type="currency" />
+							</h:outputText>
+					</p:column>
+
+					<p:column headerText="Nature">
+						<h:outputText value="#{t.nature}" />
+					</p:column>
+
+
+					<p:summaryRow>
+						<p:column style="text-align:right">
+						</p:column>
+
+						<p:column style="text-align:right">
+						</p:column>
+
+						<p:column style="text-align:left">
+							<p:commandButton id="splitBtn1" value="Split" icon="pi pi-search" oncomplete="PF('splitdialog').show()" update=":form:splitdg :form:splitButtonPanel :form:splitInfo">
+								<f:setPropertyActionListener value="#{rview.get26ASAggr(t.partyId)}" target="#{rview.amountToSplit}" />
+								<f:setPropertyActionListener value="#{t.partyId}" target="#{rview.selectedPartyId}" />
+								<p:resetInput target=":form:split-amount-content" />
+							</p:commandButton>
+						</p:column>
+
+						<p:column style="text-align:left">
+							<p:commandButton id="splitBtn2" value="Split" icon="pi pi-search" oncomplete="PF('splitdialog').show()" update=":form:splitdg :form:splitButtonPanel :form:splitInfo">
+								<f:setPropertyActionListener value="#{rview.getSRAggr(t.partyId)}" target="#{rview.amountToSplit}" />
+								<f:setPropertyActionListener value="#{t.partyId}" target="#{rview.selectedPartyId}" />
+								<p:resetInput target=":form:split-amount-content" />
+							</p:commandButton>
+						</p:column>
+
+
+						<p:column style="text-align:left">
+							<p:commandButton id="splitBtn3" value="Split" icon="pi pi-search" oncomplete="PF('splitdialog').show()" update=":form:splitdg :form:splitButtonPanel :form:splitInfo">
+								<f:setPropertyActionListener value="#{rview.getRTPAggr(t.partyId)}" target="#{rview.amountToSplit}" />
+								<f:setPropertyActionListener value="#{t.partyId}" target="#{rview.selectedPartyId}" />
+								<p:resetInput target=":form:split-amount-content" />
+							</p:commandButton>
+						</p:column>
+
+						<p:column style="text-align:left">
+
+							<p:commandButton id="carryFWBtn" value="Carry-Forward" icon="pi pi-search" oncomplete="PF('carryfwdialog').show()">
+								<f:setPropertyActionListener value="#{t.partyId}" target="#{rview.selectedPartyId}" />
+								<p:resetInput target=":form:carryfw-content" />
+							</p:commandButton>
+
+
+						</p:column>
+
+
+					</p:summaryRow>
+				</p:dataTable>
+
+			</div>
+
+			<!-- Dialog Ellement. This element shows the form which can be used for the configuration of the Split -->
+
+			<p:dialog id="splitdg" header="Split Configuration" showEffect="fade" modal="true" widgetVar="splitdialog" responsive="true" style="dialog-style-class">
+
+				<p:growl id="dilogmsg" />
+
+				<p:hotkey bind="ctrl+a" handler="alert('Pressed a');" />
+
+				<p:outputPanel id="split-amount-content" class="ui-fluid">
+
+					<div class="p-field p-col-12 p-md-4">
+						<h5>Split Count</h5>
+						<h:panelGrid columns="1" style="margin-bottom: 10px">
+							<p:spinner id="splitCountSpinner" value="#{rview.natureMatTotal}" min="0" max="10" stepFactor="1" valueChangeListener="#{rview.onNatureCountChanged}">
+								<p:ajax process="@form" update="split-amount-content dilogmsg" />
+							</p:spinner>
+						</h:panelGrid>
+					</div>
+					<p:outputPanel id="nmatpanel">
+						<p:dataTable id="nmat" var="n" value="#{rview.natureMat}" editable="true" style="margin-bottom:20px" editMode="cell" widgetVar="naturematrixwig" editInitEvent="dblclick"
+							scrollable="true" scrollHeight="250">
+
+							<p:ajax event="cellEdit" listener="#{rview.onNatureEdit}" update="messages :form:splitButtonPanel :form:splitInfo " proces="@this" />
+
+							<f:facet name="header">
+								<span stlye="text-align:center">
+									Actual #{rview.amountToSplit}
+								</span>
+							</f:facet>
+
+
+							<p:column headerText="Amount">
+								<p:cellEditor>
+									<f:facet name="output">
+										<h:outputText value="#{n.ratio}">
+											<f:convertNumber type="currency"/>
+											
+										</h:outputText>
+									</f:facet>
+									<f:facet name="input">
+										<p:inputNumber value="#{n.ratio}" style="width:100%" label="Ratio" />
+
+									</f:facet>
+								</p:cellEditor>
+							</p:column>
+
+
+							<p:column headerText="Type of Income">
+								<p:cellEditor>
+									<f:facet name="output">
+										<h:outputText value="#{n.incomeType}" />
+									</f:facet>
+
+									<f:facet name="input">
+										<p:inputText id="modelInput" value="#{n.incomeType}" style="width:100%" />
+									</f:facet>
+								</p:cellEditor>
+							</p:column>
+
+							<p:column headerText="Nature">
+								<p:cellEditor>
+									<f:facet name="output">
+										<h:outputText value="#{n.nature}" />
+									</f:facet>
+									<f:facet name="input">
+										<h:selectOneMenu value="#{n.nature}" style="width:100%">
+											<f:selectItems value="#{rview.natureList}" var="nature" itemLabel="#{nature}" itemValue="#{nature}" />
+										</h:selectOneMenu>
+									</f:facet>
+								</p:cellEditor>
+							</p:column>
+
+							<p:column headerText="Action">
+								<p:commandButton class="ui-button-warning rounded-button" icon="pi pi-trash" actionListener="#{rview.deleteNature(n)}" process="@this"
+									update="nmat messages :form:splitCountSpinner :form:splitInfo :form:splitButtonPanel">
+								</p:commandButton>
+							</p:column>
+
+						</p:dataTable>
+
+
+						<h:panelGrid columns="10" style="margin-bottom: 10px" id="splitInfo">
+
+							<p:button value="TOTAL:#{rview.aggrSplitAmount}" styleClass="rounded-button ui-button-help" />
+							<p:button value="Left  #{rview.splitRemainingAmount}" styleClass="rounded-button ui-button-warning" rendered="#{rview.splitRemainingAmount > 0}" />
+							<p:button value="WARNING : Split > Actuals" styleClass="rounded-button ui-button-danger" rendered="#{!(rview.splitRemainingAmount >= 0)}" />
+							<p:button value="REMAINING#{rview.splitRemainingAmount}" styleClass="rounded-button ui-button-success" rendered="#{rview.remainingZero}" />
+							<p:button value="ACTUAL#{rview.amountToSplit}" styleClass="rounded-button ui-button-secondary" />
+
+
+						</h:panelGrid>
+
+					</p:outputPanel>
+
+				</p:outputPanel>
+
+				<f:facet name="footer">
+
+					<h:panelGrid columns="3" style="margin-bottom: 10px" id="splitButtonPanel">
+
+
+						<p:commandButton value="Split Amount" icon="pi pi-check" rendered="#{rview.remainingZero}" actionListener="#{rview.splitGlobalAmount}" update="split-amount-content"
+							process="split-amount-content @this" onclick="PF('splitDialog').hide()" />
+
+
+						<p:commandButton value="Clear Ratios" icon="pi pi-check" actionListener="#{rview.deleteAllRatio}" update="split-amount-content splitCountSpinner"
+							process="split-amount-content @this" />
+
+
+						<p:commandButton value="Cancel" icon="pi pi-times" onclick="PF('splitDialog').hide()" class="ui-button-secondary" />
+					</h:panelGrid>
+
+				</f:facet>
+			</p:dialog>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<p:dialog id="carryfwdg" header="Carry Forward" showEffect="fade" modal="true" widgetVar="carryfwdialog" responsive="true" style="dialog-style-class">
+				<p:growl id="carryfwmsg" />
+
+				<p:outputPanel id="carryfw-content" class="ui-fluid">
+
+					<div class="p-field p-col-12 p-md-6">
+						<h4>Source</h4>
+						<p:selectOneMenu id="sourcemenu" value="#{rview.selectedCfSource}">
+							<f:selectItems value="#{ref.defSources}" var="source" itemLabel="#{source}" itemValue="#{source}" />
+						</p:selectOneMenu>
+
+					</div>
+
+					<div class="p-field p-col-12 p-md-3">
+						<h4>Reason</h4>
+
+						<p:selectOneMenu id="reasonmenu" value="#{rview.selectedReasons}">
+							<f:selectItems value="#{ref.defReasons}" />
+						</p:selectOneMenu>
+
+
+					</div>
+
+
+					<div class="p-field p-col-12 p-md-3">
+						<h4>Amount</h4>
+						<p:inputNumber id="carryfwinput2" value="#{rview.carryfwamount}" decimalSeparator="." thousandSeparator="," />
+					</div>
+
+					<div class="p-field p-col-12 p-md-3">
+						<h4>Reason in detail (Max 256 Characters)</h4>
+						<p:inputTextarea rows="5" cols="30" maxlength="256" autoResize="false" id="carryfwinput3" value="#{rview.carryfwreasondetail}" />
+					</div>
+
+
+
+
+					<div class="p-field p-col-12 p-md-6">
+						<h:panelGrid columns="3">
+							<p:commandButton value="Carry Forward" icon="pi pi-check" actionListener="#{rview.carryFw}" update="carryfw-content cfpannel form carryfwmsg" process="carryfw-content @this"
+								oncomplete="PF('carryfwdialog').hide()" />
+
+							<p:commandButton value="Close" icon="pi pi-times" onclick="PF('carryfwdialog').hide()" class="ui-button-secondary" />
+						</h:panelGrid>
+					</div>
+
+				</p:outputPanel>
+
+			</p:dialog>
+
+
+
+			<p:outputPanel id="cfpannel">
+				<div class="card">
+					<h3>Carry Forward transactions</h3>
+
+					<p:dataTable var="t" value="#{rview.cfTrans}" sortBy="#{t.partyName}">
+
+						<p:column headerText="Party">
+							<h:outputText value="#{t.partyName}" />
+						</p:column>
+
+						<p:column headerText="Source">
+							<h:outputText value="#{ref.getDefSource(t.prioritySource)}" />
+						</p:column>
+
+						<p:column headerText="Carryforward Income">
+							<h:outputText value="#{t.priorityAmount}" >
+								<f:convertNumber type="currency" />
+							</h:outputText>
+							
+							
+						</p:column>
+
+						<p:column headerText="Reason">
+							<h:outputText value="#{t.reason}" />
+						</p:column>
+
+						<p:column headerText="Action">
+							<p:commandButton class="ui-button-warning rounded-button" icon="pi pi-trash" actionListener="#{rview.carryBw(t)}" process="@this" update="form :form:cfpannel">
+							</p:commandButton>
+						</p:column>
+
+
+
+					</p:dataTable>
+				</div>
+			</p:outputPanel>
+
+
+		</h:form>
+
+	</h:body>
+</html>
+

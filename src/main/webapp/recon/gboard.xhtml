@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<h:outputStylesheet library="webjars" name="primeflex/2.0.0/primeflex.min.css" />
+	</h:head>
+
+	<h:body style="margin-left:50px">
+
+		<style type="text/css">
+			button.ui-button { margin-right: .5rem;}
+			.dialog-style-class { width: 50%; height: 70%;}
+			}
+		</style>
+
+		<h:form id="form">
+
+			<p:growl id="msgs" />
+
+			<div class="card">
+			
+					<p:toolbar rendered="true">
+						<p:toolbarGroup>
+							<p:commandLink style="margin-right:20px;" id="reset" value="Reset" icon="pi pi-search" action="#{gview.reset}" disabled="false" update="datatabs" />
+							<p:commandLink style="margin-right:20px;" id="validate" value="Validate" icon="pi pi-search" action="#{gview.validate}" disabled="true" update="datatabs" />
+							<p:commandLink style="margin-right:20px;" id="approve" value="Approve" icon="pi pi-search" action="#{gview.approve}" disabled="true" update="datatabs" />
+							<p:commandLink style="margin-right:20px;" id="proceed" value="Proceed To next stage" icon="pi pi-search" ajax="false" action="#{gview.proceed}" disabled="true" update="datatabs"
+					oncomplete="window.open('rnames.xhtml')" />
+							<p:commandLink style="margin-right:20px;" id="logout" value="Log out" action="#{father.logout}" oncomplete="window.open('home.xhtml','_self')"/>
+						</p:toolbarGroup>
+
+
+						<p:toolbarGroup>
+												
+							<p:splitButton value="Reload"  icon="pi pi-save">
+								<p:submenu label="Navigations">
+
+									<p:menuitem value="Data Load" onclick="window.open('rdata.xhtml','_self')" ajax="true" />
+
+									<p:menuitem value="Name Mapping" onclick="window.open('rnames.xhtml','_self')" ajax="true"/>
+
+									<p:menuitem value="Reonciliation" onclick="window.open('rboard6.xhtml','_self')" ajax="true"/>
+
+									<p:menuitem value="Preview" onclick="window.open('preview.xhtml','_self')" ajax="true"/>
+
+									<p:menuitem value="Tax computation" onclick="window.open('tboard3.xhtml','_self')" ajax="true"/>
+
+									<p:menuitem value="Generate" onclick="window.open('gview.xhtml','_self')" ajax="true"/>
+
+								</p:submenu>
+								
+							</p:splitButton>
+						</p:toolbarGroup>
+					</p:toolbar>
+			
+				<p:steps activeIndex="0">
+					<p:menuitem value="Document Upload" />
+					<p:menuitem value="Name mapping" />
+					<p:menuitem value="Reconciliation" />
+					<p:menuitem value="Review" />
+					<p:menuitem value="Tax Positions" />
+					<p:menuitem value="Generate" />
+				</p:steps>
+
+			</div>
+
+			<div class="card">
+				<p:tabView id="datatabs">
+
+					<p:tab title="Data upload">
+
+						<div class="card">
+
+							<h:outputText value="Upload Files" />
+
+							<div class="p-formgrid p-grid">
+
+								<div class="p-field p-col-5">
+									<h:form enctype="multipart/form-data">
+									
+										<div class="card">
+											<p:fileUpload listener="#{gview.handleFileUploadITR}" label="ITR6 XML" rendered="false" mode="advanced" dragDropSupport="false" update="messages" sizeLimit="10000000"
+												fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" validateContentType="true" accept=".xml" onupload="return confirm('Are you sure?')">
+											</p:fileUpload>
+										</div>
+										
+								        <p:commandButton value="Download ITR6 Template" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);"
+						                         icon="pi pi-arrow-down" styleClass="p-mr-2">
+						            			<p:fileDownload value="#{gview.itr6Template}"/>
+						        		</p:commandButton>
+																
+										
+										
+										
+										<div class="card">
+											<p:fileUpload listener="#{gview.handleFileUploadSR}" label="Sales Register EXCEL" mode="advanced" dragDropSupport="false" update="messages form:datatabs"
+												sizeLimit="10000000" fileLimit="3" allowTypes="/(\.|\/)(xlsx)$/" accept=".xlsx">
+
+											</p:fileUpload>
+										</div>
+										
+										
+										<p:growl id="messages" showDetail="true" />
+										
+									</h:form>
+
+								</div>
+
+								<div class="p-field p-col-7">
+
+									<div class="card">
+
+										<p:dataTable id="tableconfig" var="t" value="#{gview.tableConfig}" 
+												sortBy="#{t.partyName}"
+														style="margin-bottom:20px">
+
+											<p:column headerText="Tab">
+												<h:outputText value="#{t.tab}" />
+											</p:column>
+
+											<p:column headerText="Table Name">
+												<h:outputText value="#{t.tableName}" />
+											</p:column>
+
+											<p:column headerText="Default">
+												<h:outputText value="#{t.length}" />
+											</p:column>
+
+											<p:column headerText="To be Added">
+												<h:outputText value="#{t.offset}" />
+											</p:column>
+										</p:dataTable>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</p:tab>
+
+				</p:tabView>
+			</div>
+
+
+		</h:form>
+
+
+	</h:body>
+</html>
+

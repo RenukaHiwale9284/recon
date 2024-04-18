@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.anemoi.itr.storage.GenTableDefinition" table="GenTableDefinition">
+
+		<composite-id>
+			<key-property name="projectId" column="project_id" />
+			<key-property name="tableName" column="table_name" />
+		</composite-id>		
+
+		<property name="v1">
+			<column name="data1" />
+		</property>
+
+		<property name="v2">
+			<column name="data2" />
+		</property>
+
+		<property name="v3">
+			<column name="data3" />
+		</property>
+
+		<property name="v4">
+			<column name="data4" />
+		</property>
+
+		<property name="v5">
+			<column name="data5" />
+		</property>
+
+		<property name="v6">
+			<column name="data6" />
+		</property>
+
+		<property name="v7">
+			<column name="data7" />
+		</property>
+
+		<property name="v8">
+			<column name="data8" />
+		</property>
+
+		<property name="v9">
+			<column name="data9" />
+		</property>
+
+		<property name="v10">
+			<column name="data10" />
+		</property>
+
+		<property name="v11">
+			<column name="data11" />
+		</property>
+
+		<property name="v12">
+			<column name="data12" />
+		</property>
+
+		<property name="v13">
+			<column name="data13" />
+		</property>
+
+		<property name="v14">
+			<column name="data14" />
+		</property>
+
+		<property name="v15">
+			<column name="data15" />
+		</property>
+
+		<property name="v16">
+			<column name="data16" />
+		</property>
+
+		<property name="v17">
+			<column name="data17" />
+		</property>
+
+		<property name="v18">
+			<column name="data18" />
+		</property>
+
+		<property name="v19">
+			<column name="data19" />
+		</property>
+
+		<property name="v20">
+			<column name="data20" />
+		</property>
+
+	</class>
+
+</hibernate-mapping>

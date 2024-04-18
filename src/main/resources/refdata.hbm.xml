@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<!-- 
+	double itrVersion ;
+	String tag ;
+	String key ;
+	String value ;	-->
+
+
+	<class name="com.anemoi.itr.ref.RefData" table="ref_data">
+		<composite-id>
+			<key-property name="itrVersion" column="itrVersion" />
+			<key-property name="tag" column="tag" />
+			<key-property name="key" column="key" />			
+		</composite-id>		
+
+		<property name="value">
+			<column name="value" />
+		</property>		
+	</class>
+
+</hibernate-mapping>

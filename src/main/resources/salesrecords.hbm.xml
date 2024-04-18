@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<!-- 
+    int projectId ;
+	int sr_no ;
+	String name ; 
+	String tan ;
+	double tac ; // total amount credited
+	double ttd ; // total tax deducted 	
+	double tdsdeposited ;// total tds deposited;
+	-->
+
+
+	<class name="com.anemoi.data.SalesRecord" table="sales_data">
+	
+		
+		<composite-id>
+			<key-property name="projectId" column="projectId" />
+			<key-property name="srNo" column="srNo" />
+		</composite-id>		
+
+		<property name="partyName">
+			<column name="partyName" />
+		</property>
+
+		<property name="invoiceNumber">
+			<column name="invoiceNumber" />
+		</property>
+
+		<property name="invoiceDate">
+			<column name="invoiceDate" />
+		</property>
+
+		<property name="invoiceAmount">
+			<column name="invoiceAmount" />
+		</property>
+
+		<property name="tax">
+			<column name="tax" />
+		</property>
+
+		<property name="currency">
+			<column name="currency" />
+		</property>
+
+	</class>
+
+</hibernate-mapping>

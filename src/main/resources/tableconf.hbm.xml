@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.anemoi.itr.TableConfiguration" table="TableConfiguration">
+
+		<composite-id>
+			<key-property name="projectId" column="projectId" />
+			<key-property name="tableName" column="tableName" />
+		</composite-id>		
+
+		<property name="tab">
+			<column name="tab" />
+		</property>
+
+		<property name="length">
+			<column name="tablelength" />
+		</property>
+
+		<property name="offset">
+			<column name="tableoffset" />
+		</property>
+
+		<property name="data_length">
+			<column name="data_length" />
+		</property>
+
+		<property name="enable">
+			<column name="tableenable" />
+		</property>
+
+	</class>
+
+</hibernate-mapping>

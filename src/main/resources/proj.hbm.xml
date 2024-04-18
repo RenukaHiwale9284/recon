@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.anemoi.data.Proj" table="taxwork">
+		
+		
+		<id name = "projectId" type = "int" column = "projectId"> 
+			<generator class="identity"/> 
+		</id> 
+			
+		<property name="stage">
+			<column name="stage" />
+		</property>
+			
+
+		<property name="name">
+			<column name="name" />
+		</property>
+
+		<property name="pan">
+			<column name="pan" />
+		</property>
+
+		<property name="activity">
+			<column name="activity" />
+		</property>
+
+		<property name="groupCompany">
+			<column name="groupCompany" />
+		</property>
+
+		<property name="precisionId">
+			<column name="precisionId" />
+		</property>
+
+		<property name="year">
+			<column name="year" />
+		</property>
+
+		<property name="secret">
+			<column name="secret" />
+		</property>
+
+		<property name="users">
+			<column name="users" />
+		</property>
+
+		<property name="lockedTill">
+			<column name="lockedTill" />
+		</property>
+
+		<property name="lockedBy">
+			<column name="lockedBy" />
+		</property>
+
+		<property name="encrSecret">
+			<column name="encrSecret" />
+		</property>
+
+		<property name="attempts">
+			<column name="attempts" />
+		</property>
+
+
+	</class>
+
+</hibernate-mapping>

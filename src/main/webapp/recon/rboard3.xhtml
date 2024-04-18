@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+	<h:head>
+		<h:outputStylesheet library="webjars"
+			name="primeflex/2.0.0/primeflex.min.css" />
+	</h:head>
+
+	<h:body style="margin-left:50px">
+
+		<style type="text/css">
+			button.ui-button {
+			margin-right: .5rem;
+			}
+		</style>
+
+		<p:growl id="messages" />
+
+		<h2>Recon Dashboard</h2>
+
+		<div class="card">
+
+			<h:form>
+
+					<p:commandButton id="splitBtn" value="Split"
+								type="button" icon="pi pi-search"
+								onclick="PF('splitdialog').show()">								
+							</p:commandButton>
+
+				<p:dialog header="Split Configuration" showEffect="fade" minHeight="40" width="350"
+					modal="true" widgetVar="splitdialog" responsive="true">
+				</p:dialog>
+
+
+
+				<p:dataTable var="t" value="#{rview.trans}"
+					sortBy="#{t.partyName}">
+					<p:headerRow field="partyName" expandable="true"
+						expanded="#{t.partyId} !=  1}">
+
+						<!-- <p:column> <div class="p-d-inline-flex p-ai-center" style="vertical-align: 
+							middle"> <h:outputText styleClass="p-ml-2" value="#{t.partyName}" /> </div> 
+							</p:column> <p:column> <div class="p-d-inline-flex p-ai-center" style="vertical-align: 
+							middle"> <h:outputText styleClass="p-ml-2" value="#{reconView.getTotalSource(t.partyId)}" 
+							/> </div> </p:column> -->
+
+						<p:column headerText="Party">
+							<h:outputText value="#{t.partyName}" />
+						</p:column>
+
+						<p:column headerText="26AS">
+							<h:outputText
+								value="#{rview.get26ASAggr(t.partyId)}" />
+						</p:column>
+
+						<p:column headerText="Sales Register">
+							<h:outputText value="#{rview.getSRAggr(t.partyId)}" />
+						</p:column>
+
+						<p:column headerText="RTP">
+							<h:outputText value="#{rview.getRTPAggr(t.partyId)}" />
+						</p:column>
+
+
+
+
+					</p:headerRow>
+
+					<p:column headerText="Party">
+						<h:outputText value="#{t.partyName}" />
+					</p:column>
+
+
+					<p:column headerText="26AS Income">
+						<h:outputText value="#{t.source1Amount}" />
+					</p:column>
+
+					<p:column headerText="Sales Register Income">
+						<h:outputText value="#{t.source2Amount}" />
+					</p:column>
+
+					<p:column headerText="RTP Income">
+						<h:outputText value="#{t.source3Amount}" />
+					</p:column>
+
+					<p:column headerText="Nature">
+						<h:outputText value="#{t.nature}" />
+					</p:column>
+
+
+					<p:summaryRow>
+
+						<p:column colspan="4" style="text-align:right">
+							<p:commandButton id="splitBtn" value="Split"
+								type="button" icon="pi pi-search"
+								oncomplete="PF('splitdialog').show()">
+								
+								
+								<f:setPropertyActionListener 
+									value="#{t.getPartyId}" target="#{rview.selectedPartyId}" />
+								<p:resetInput target=":form:split-amount-content" />
+								
+							</p:commandButton>
+
+
+							<p:commandButton id="carryFWBtn"
+								value="Carry-Forward" type="button" icon="pi pi-search"
+								oncomplete="PF('manageProductDialog').show()">
+
+								<f:setPropertyActionListener
+									value="#{t.partyId}" target="#{rview.selectedPartyId}" />
+								<p:resetInput target=":form:manage-product-content" />
+							</p:commandButton>
+
+
+							<p:splitButton value="Reconcile"
+								action="#{rview.splitAmount(t.partyId)}" update="messages"
+								icon="pi pi-save" filter="true" filterMatchMode="startsWith">
+
+								<p:submenu label="Split">
+									<p:menuitem value="Split by default"
+										action="#{rview.splitAmountByDefault(t.partyId)}"
+										update="messages" icon="pi pi-save" />
+									<p:menuitem value="Split by ratio" id="splitBy"
+
+										update="messages" icon="pi pi-refresh" />
+
+								</p:submenu>
+
+								<p:submenu label="Carry Forward">
+									<p:menuitem value="Carry Forard by default"
+										action="#{rview.carryForwardByDefault(t.partyId)}"
+										update="messages" ajax="false" icon="pi pi-times" />
+
+									<p:menuitem value="Carry Forard by Feedback"
+										action="#{rview.carryForwardByFeedback(t.partyId)}"
+										update="messages" ajax="false" icon="pi pi-times" />
+								</p:submenu>
+
+								<p:submenu label="Review">
+									<p:menuitem value="Show 26AS Transcation"
+										action="#{rview.show26ASTrans(t.partyId)}" icon="pi pi-home" />
+									<p:menuitem value="Show Sales Register"
+										action="#{rview.showSalesTrans(t.partyId)}" update="messages"
+										ajax="false" icon="pi pi-home" />
+									<p:menuitem value="Show RTP"
+										action="#{rview.showRTP(t.partyId)}" update="messages"
+										ajax="false" icon="pi pi-home" />
+								</p:submenu>
+
+								<p:submenu label="Update Data">
+									<p:menuitem value="Add 26AS Transaction"
+										action="#{rview.add26ASTrans(t.partyId)}" icon="pi pi-home" />
+									<p:menuitem value="Add Sales Transaction"
+										action="#{rview.addSalesTrans(t.partyId)}" update="messages"
+										ajax="false" icon="pi pi-home" />
+									<p:menuitem value="Add RTP"
+										action="#{rview.showTRP(t.partyId)}" update="messages"
+										ajax="false" icon="pi pi-home" />
+								</p:submenu>
+
+								<p:divider />
+
+								<p:menuitem value="sInternal" icon="pi pi-star" />
+							</p:splitButton>
+
+							<h:outputText value="#{reconView.getSummary(t)}" />
+						</p:column>
+
+
+					</p:summaryRow>
+				</p:dataTable>
+
+
+
+
+
+
+
+			</h:form>
+		</div>
+
+	</h:body>
+</html>
+

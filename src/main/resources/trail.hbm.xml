@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.anemoi.data.Trail" table="auditTrail">
+				
+		<id name = "trailId" type = "long" column = "trailId"> 
+			<generator class="sequence"/>			 
+		</id> 
+							
+		<property name="timestamp">
+			<column name="timestamp" />
+		</property>
+
+		<property name="projectId">
+			<column name="projectId" />
+		</property>
+		<property name="projectStage">
+			<column name="projectStage" />
+		</property>
+		<property name="user">
+			<column name="user" />
+		</property>
+
+		<property name="msg">
+			<column name="msg" />
+		</property>
+
+		<property name="msgType">
+			<column name="msgType" />
+		</property>
+
+		<property name="details">
+			<column name="details" />
+		</property>
+
+		<property name="sessionId">
+			<column name="sessionId" />
+		</property>
+		<property name="threadId">
+			<column name="threadId" />
+		</property>
+		<property name="systemState">
+			<column name="systemState" />
+		</property>
+	</class>
+
+</hibernate-mapping>

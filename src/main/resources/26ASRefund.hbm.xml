@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<!-- 
+    int projectId ;
+	int sr_no ;
+	String name ; 
+	String tan ;
+	double tac ; // total amount credited
+	double ttd ; // total tax deducted 	
+	double tdsdeposited ;// total tds deposited;
+	-->
+
+
+	<class name="com.anemoi.data.Refund" table="refund_data">
+	
+		
+		<composite-id>
+			<key-property name="projectId" column="projectId" />
+			<key-property name="assessmentYear" column="assessmentYear" />
+			<key-property name="srNo" column="srNo" />
+		</composite-id>		
+
+
+		<property name="mode">
+			<column name="mode" />
+		</property>
+
+		<property name="issued">
+			<column name="issued" />
+		</property>
+
+		<property name="nature">
+			<column name="nature" />
+		</property>
+
+		<property name="amountOfRefund">
+			<column name="amountOfRefund" />
+		</property>
+
+		<property name="interest">
+			<column name="interest" />
+		</property>
+
+		<property name="dateOfRefund">
+			<column name="dateOfRefund" />
+		</property>
+
+		<property name="remarks">
+			<column name="remarks" />
+		</property>
+
+
+
+	</class>
+
+</hibernate-mapping>

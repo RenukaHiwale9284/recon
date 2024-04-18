@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.anemoi.itr.TaxElement" table="TaxElement">
+
+		<composite-id>
+			<key-property name="projectId" column="projectId" />
+			<key-property name="var" column="property" />
+		</composite-id>		
+
+		<property name="sheet">
+			<column name="tab" />
+		</property>
+
+		<property name="desc">
+			<column name="description" />
+		</property>
+
+		<property name="valueStr">
+			<column name="value" />
+		</property>
+
+		<property name="valueType">
+			<column name="value_type" />
+		</property>
+
+	</class>
+
+</hibernate-mapping>

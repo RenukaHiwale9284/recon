@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<!-- 
+    int projectId ;
+	int sr_no ;
+	String name ; 
+	String tan ;
+	double tac ; // total amount credited
+	double ttd ; // total tax deducted 	
+	double tdsdeposited ;// total tds deposited;
+	-->
+
+
+	<class name="com.anemoi.data.PartyRecord" table="Party26AS">
+		<composite-id>
+			<key-property name="projectId" column="projectId" />
+			<key-property name="tan" column="party_tan" />
+		</composite-id>		
+
+		<property name="sr_no">
+			<column name="sr_no" />
+		</property>
+
+		<property name="partyName">
+			<column name="party_name" />
+		</property>
+
+		<property name="tac">
+			<column name="tax_amount_credited" />
+		</property>
+
+		<property name="ttd">
+			<column name="total_tax_deducted" />
+		</property>
+
+		<property name="tdsdeposited">
+			<column name="total_tds_deposited" />
+		</property>
+
+
+	</class>
+
+</hibernate-mapping>

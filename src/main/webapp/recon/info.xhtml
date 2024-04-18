@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<h:outputStylesheet library="webjars" name="primeflex/2.0.0/primeflex.min.css" />
+	</h:head>
+
+	<h:body style="margin-left:50px">
+
+
+		<h:form id="form">
+
+			<div class="card">
+				<h5>Responsive Grid</h5>
+				<style>
+					/* reset on the showcase style*/
+					body .ui-panelgrid .ui-panelgrid-cell {
+					background-color: transparent;
+					}
+
+					/* example use of styles for your form */
+					.my-heading-row {
+					background-color:
+					var(--surface-c);
+					font-weight: bold;
+					}
+				</style>
+
+				<p:panelGrid columns="4" columnClasses="ui-grid-col-2,ui-grid-col-4,ui-grid-col-2,ui-grid-col-4" layout="grid" styleClass="ui-panelgrid-blank ui-fluid"
+					style="border:2px; background-color:transparent;">
+
+					<p:row styleClass="my-heading-row">
+						Biographic
+					</p:row>
+
+					<p:outputLabel for="@next" value="First Name" />
+					<p:inputText />
+
+					<p:outputLabel for="@next" value="Last Name" />
+					<p:inputText />
+
+					<p:outputLabel for="@next" value="Phone" />
+					<p:inputText />
+
+					<p:outputLabel for="@next" value="Email" />
+					<p:inputText />
+
+					<p:outputLabel for="@next" value="Address" />
+					<p:inputTextarea rows="3" />
+
+					<p:row id="my-row-id" styleClass="my-heading-row" style="font-weight: bold">
+						Vehicle
+					</p:row>
+
+					<p:outputLabel for="@next" value="Manufacturer" />
+					<p:inputText />
+
+					<p:outputLabel for="@next" value="Series" />
+					<p:inputText />
+
+					<p:outputLabel for="@next" value="Color" />
+					<p:inputText />
+
+					<p:outputLabel for="idReg" value="Registration Number" />
+					<p:column style="background-color: lightcoral">
+						<p:inputText id="idReg" />
+					</p:column>
+
+					<p:row>
+						<p:column styleClass="ui-grid-col-12">
+							<p>
+								It should be noted that the use of @next is not possible for the
+								<u>Registration Number</u>
+								outputLabel and the
+								<u>for</u>
+								attribute
+								should utilize an ID as shown in the example. The other outputLabel and inputText fields do not require this
+								as they are the natural next element whereas
+								<u>Registration Number</u>
+								is encapsulated in a column.
+							</p>
+						</p:column>
+					</p:row>
+
+					<p:row>
+						<p:column styleClass="ui-grid-col-12">
+							<p:commandButton value="Accept" styleClass="p-mr-2" style="width: auto" />
+							<p:commandButton value="Reject" styleClass="p-mr-2" style="width: auto" />
+							<p:commandButton value="Refer" style="width: auto" />
+						</p:column>
+					</p:row>
+				</p:panelGrid>
+			</div>
+
+
+			<p:growl id="msgs" />
+
+			<div class="card">
+				<p:commandButton id="reset" value="Reset" icon="pi pi-search" disabled="true" />
+				<p:commandButton id="validate" value="Validate" icon="pi pi-search" />
+				<p:commandButton id="approve" value="Approve" icon="pi pi-search" disabled="true" />
+				<p:commandButton id="proceed" value="Proceed To next stage" icon="pi pi-search" disabled="false" />
+			</div>
+			<div class="card">
+				<p:steps activeIndex="4">
+					<p:menuitem value="Document Upload" />
+
+
+					<p:menuitem value="Name mapping" />
+					<p:menuitem value="Reconciliation" />
+					<p:menuitem value="Review" />
+					<p:menuitem value="Tax Positions" />
+					<p:menuitem value="ITR6 Preview" />
+					<p:menuitem value="Generate" />
+				</p:steps>
+			</div>
+
+			<div class="card">
+				<div class="flex flex-wrap md:justify-content-between justify-content-center card-container blue-container">
+					<div class="border-none w-12rem h-6rem m-2 surface-overlay font-bold flex align-items-center justify-content-center">border-none</div>
+					<div class="border-1 border-blue-500 w-12rem h-6rem m-2 surface-overlay font-bold flex align-items-center justify-content-center">border-1</div>
+					<div class="border-2 border-blue-500 w-12rem h-6rem m-2 surface-overlay font-bold flex align-items-center justify-content-center">border-2</div>
+					<div class="border-3 border-blue-500 w-12rem h-6rem m-2 surface-overlay font-bold flex align-items-center justify-content-center">border-3</div>
+				</div>
+			</div>
+
+
+		</h:form>
+
+
+	</h:body>
+</html>
+

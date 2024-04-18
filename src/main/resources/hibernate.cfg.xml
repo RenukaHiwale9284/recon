@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+ 
+<hibernate-configuration>
+    <session-factory>
+        
+        
+        <!-- 
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/taxreturndata</property>
+        <property name="hibernate.connection.username">taxadmin</property>
+        <property name="hibernate.connection.password">12345678</property>
+ 		-->
+ 		 
+           
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://anemoi-postgresql-server.postgres.database.azure.com:5432/taxfiling</property>
+        <property name="hibernate.connection.username">taxAdmin@anemoi-postgresql-server</property>
+        <property name="hibernate.connection.password">Th1sIsAP@ssw0rd</property>
+        <property name="hibernate.connection.useSSL">true</property>
+		
+		
+				
+        <!-- SQL dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+ 
+        <!-- Print executed SQL to stdout -->
+		<property name="show_sql">true</property>
+ 
+         <!-- Update database on startup -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+ 
+ 
+         <!-- Annotated entity classes -->
+        <mapping resource ="IncomeAmount.hbm.xml"/>
+        <mapping resource ="26AS.hbm.xml"/>
+        <mapping resource ="26ASRefund.hbm.xml"/>
+        <mapping resource ="salesrecords.hbm.xml"/>
+        <mapping resource ="rpt.hbm.xml"/>
+        <mapping resource ="itaa.hbm.xml"/>
+        <mapping resource ="dtaa.hbm.xml"/>
+        <mapping resource ="curr.hbm.xml"/>
+        <mapping resource ="proj.hbm.xml"/>
+        <mapping resource ="namedata.hbm.xml"/>
+        <mapping resource ="taxpos.hbm.xml"/>
+        
+         
+        <mapping resource ="tableconf.hbm.xml"/>
+        <mapping resource ="taxelement.hbm.xml"/>
+        <mapping resource ="celltemplate.hbm.xml"/>
+        <mapping resource ="listtemplate.hbm.xml"/>
+        <mapping resource ="GenTableDefinition.hbm.xml"/>
+        <mapping resource ="GenTable.hbm.xml"/>
+        <mapping resource ="Validator.hbm.xml"/>        
+        <mapping resource ="refdata.hbm.xml"/>
+
+        <mapping resource ="trail.hbm.xml"/>
+        
+    </session-factory>
+    
+    
+    
+</hibernate-configuration>

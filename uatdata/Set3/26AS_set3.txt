@@ -1,0 +1,99 @@
+^Form 26AS^
+
+File Creation Date^Permanent Account Number (PAN)^Current Status of PAN^Financial Year^Assessment Year^Name of Assessee^Address Line 1^Address Line 2^Address Line 3^Address Line 4^Address Line 5^Statecode^Pin Code
+23-11-2021^FFFFF9999F^ACTIVE^2019-2020^2020-2021^    INANDOUT SOMETHING & SOME LIMITED^NEW BUILDING^3^NEW ROAD^NEW CITY DD21EG^UNITED KINGDOM^^
+
+^PART A - Details of Tax Deducted at Source^
+Sr. No.^Name of Deductor^TAN of Deductor^^^^^Total Amount Paid / Credited(Rs.)^Total Tax Deducted(Rs.)^Total TDS Deposited(Rs.)
+1^ABC PRIVATE LIMITED^BLRA99999A^^^^^193243.94^20097.00^20097.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^08-Jul-2019^F^25-Oct-2019^-^193243.94^20097.00^20097.00^
+
+2^THAT NAME INDIA PVT LTD^BLRA88888A^^^^^506180.00^50618.00^50618.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^22-Oct-2019^F^03-Feb-2020^-^506180.00^50618.00^50618.00^
+
+3^THIS NAME PRIVATE LIMITED^BLRA77777A^^^^^81531.96^8480.00^8480.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^05-Jun-2019^F^17-Jul-2019^-^81531.96^8480.00^8480.00^
+
+4^YOURNAME INDIA PRIVATE LIMITED^BLRA66666A^^^^^316231.00^32888.00^32888.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^22-Nov-2019^F^02-Feb-2020^-^316231.00^32888.00^32888.00^
+
+5^MYNAME INDIA LLP^BLRA55555A^^^^^384586.46^39997.00^39997.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^01-Jun-2019^F^21-Jul-2019^-^190000.00^19760.00^19760.00^
+^2^195^01-Jun-2019^F^21-Jul-2019^-^194586.46^20237.00^20237.00^
+
+6^DBDBDB INDIA PRIVATE LIMITED^BLRA44444A^^^^^172352.88^18820.94^18820.94^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^31-Oct-2019^F^03-Feb-2020^-^91950.55^10041.00^10041.00^
+^2^195^31-Oct-2019^F^03-Feb-2020^-^32140.35^3509.73^3509.73^
+^3^195^31-Jul-2019^F^03-Nov-2019^-^48261.98^5270.21^5270.21^
+
+7^PQR INDIA LIMITED^BLRA33333A^^^^^263491.00^27403.00^27403.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^04-Jul-2019^F^26-Oct-2019^-^154510.00^16069.00^16069.00^
+^2^195^06-May-2019^F^06-Aug-2019^-^108981.00^11334.00^11334.00^
+
+8^XYZ PRIVATE LIMITED^BLRA11111A^^^^^14322993.34^1432298.00^1432298.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^31-Mar-2020^F^21-May-2021^-^7993231.00^799324.00^799324.00^
+^2^195^10-Mar-2020^F^21-May-2021^-^1953810.00^195381.00^195381.00^
+^3^195^29-Feb-2020^F^21-May-2021^-^1084284.00^108428.00^108428.00^
+^4^195^18-Feb-2020^F^21-May-2021^-^2484212.00^248421.00^248421.00^
+^5^195^08-Oct-2019^F^21-May-2021^-^15479.25^1548.00^1548.00^
+^6^195^27-Sep-2019^F^21-May-2021^-^36684.59^3668.00^3668.00^
+^7^195^31-Aug-2019^F^21-May-2021^-^436994.76^43699.00^43699.00^
+^8^195^31-Aug-2019^F^21-May-2021^-^436994.76^43699.00^43699.00^
+^9^195^31-Aug-2019^F^21-May-2021^B^-436994.76^-43699.00^-43699.00^
+^10^195^31-Jul-2019^F^21-May-2021^-^167324.69^16732.00^16732.00^
+^11^195^16-Jul-2019^F^21-May-2021^-^150973.05^15097.00^15097.00^
+
+
+^PART A1 - Details of Tax Deducted at Source for 15G / 15H^
+Sr. No.^Name of Deductor^TAN of Deductor^^^^Total Amount Paid / Credited(Rs.)^Total Tax Deducted(Rs.)^Total TDS Deposited(Rs.)
+^^^*********** No Transactions Present **********^
+
+
+^PART A2 - Details of Tax Deducted at Source on Sale of Immovable Property u/s 194IA/ TDS on Rent of Property u/s 194IB / TDS on payment to resident contractors and professionals u/s 194M (For Seller/Landlord of Property/Payee of resident contractors and professionals)^
+Sr. No.^Acknowledgement Number^Name of Deductor^PAN of Deductor^Transaction Date^Total Transaction Amount(Rs.)^Total TDS Deposited(Rs.)
+^^^*********** No Transactions Present **********^
+
+
+^PART B - Details of Tax Collected at Source^
+Sr. No.^Name of Collector^TAN of Collector^^^^^Total Amount Paid / Debited(Rs.)^Total Tax Collected(Rs.)^Total TCS Deposited(Rs.)
+^^^*********** No Transactions Present **********^
+
+
+^PART C - Details of Tax Paid (other than TDS or TCS)^
+Sr. No.^Major Head^Minor Head^Tax(Rs.)^Surcharge(Rs.)^Education Cess(Rs.)^Others(Rs.)^Total Tax(Rs.)^BSR Code^Date of  Deposit^Challan Serial Number^Remarks
+^^^*********** No Transactions Present **********^
+
+
+^PART D - Details of Paid Refund^
+Sr. No.^Assessment Year^Mode^Refund Issued^Nature of Refund^Amount of Refund(Rs.)^Interest(Rs.)^Date of Payment^Remarks
+^^^*********** No Transactions Present **********^
+
+
+^PART E - Details of SFT Transaction^
+Sr. No.^Type of Transaction^Name of SFT Filer^Transaction Date^Amount(Rs.)^Remarks
+^^^*********** No Transactions Present **********^
+
+
+^PART F - Details of Tax Deducted at Source on Sale of Immovable Property u/s 194IA/ TDS on Rent of Property u/s 194IB /TDS on payment to resident contractors and professionals u/s 194M (For Buyer/Tenant of Property /Payer of resident contractors and professionals)^
+Sr. No.^Acknowledgement Number^Name of Deductee^PAN of Deductee^Transaction Date^Total Transaction Amount(Rs.)^Total TDS Deposited(Rs.)^Total Amount Deposited other than TDS(Rs.)
+^^^*********** No Transactions Present **********^
+
+
+^PART G - TDS Defaults (Processing of Statements)^
+Sr. No.^Financial Year^Short Payment^Short Deduction^Interest on  TDS Payments Default^Interest on TDS Deduction Default^Late Filing Fee u/s 234E^Interest u/s 220(2)^Total Default
+^^^*********** No Transactions Present **********^
+
+
+^PART H - Details of Turnover as per GSTR-3B^
+Sr. No.^GSTIN^Application Reference Number (ARN)^Date of filing^Return Period^Taxable Turnover^Total Turnover
+^^^*********** No Transactions Present **********^
+
+

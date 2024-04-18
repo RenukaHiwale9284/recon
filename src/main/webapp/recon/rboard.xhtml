@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+	<h:head>
+		<h:outputStylesheet library="webjars"
+			name="primeflex/2.0.0/primeflex.min.css" />
+	</h:head>
+
+	<h:body style="margin-left:50px">
+
+		<h2>Recon Dashboard</h2>
+
+		<h:form>
+		    <div class="card">
+		        <p:dataTable var="t" value="#{reconView.trans}">
+		            <p:column headerText="Party">
+		                <h:outputText value="#{t.partyName}" />
+		            </p:column>
+		
+		            <p:column headerText="26AS Income">
+		                <h:outputText value="#{t.source1Amount}" />
+		            </p:column>
+		
+		            <p:column headerText="SalesReg Income">
+		                <h:outputText value="#{t.source2Amount}" />
+		            </p:column>
+		
+		            <p:column headerText="RPT Income">
+		                <h:outputText value="#{t.source3Amount}" />
+		            </p:column>
+		        </p:dataTable>
+		    </div>
+		</h:form>
+
+	</h:body>
+</html>
+

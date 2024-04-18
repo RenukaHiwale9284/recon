@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<h:outputStylesheet library="webjars" name="primeflex/2.0.0/primeflex.min.css" />
+	</h:head>
+
+	<h:body style="margin-left:50px">
+
+		<style type="text/css">
+			button.ui-button {
+			margin-right: .5rem;
+			}
+
+			.dialog-style-class {
+			width: 50%;
+			height: 70%;
+			}
+		</style>
+
+		<p:growl id="messages" />
+
+		
+
+		<h:form id="form">
+		
+		
+			<p:outputPanel id="gactions">
+			<div class="card"  >
+			<p:commandLink style="margin-right:20px;" id="reset" value="Reset" icon="pi pi-search" action="#{crudView.reset}" 	disabled="true"			    update="form" />
+			<p:commandLink style="margin-right:20px;" id="validate" value="Validate" icon="pi pi-search" action="#{crudView.validate}" disabled="true"		update="form" />
+			
+			<p:commandLink style="margin-right:20px;" id="approve" value="Approve" icon="pi pi-search" action="#{crudView.approve}" disabled="false"		
+						 update="messages form" />
+
+			<p:commandLink style="margin-right:20px;" id="proceed" value="Proceed To next stage" icon="pi pi-search" ajax="false"
+									action="#{crudView.proceed}" disabled="false" update="datatabs"
+										oncomplete="window.open('itrgeneraiton.xhtml')" />
+			
+						
+			    <p:steps activeIndex="4">			    
+			        <p:menuitem value="Document Upload"/>
+			        <p:menuitem value="Name mapping" />
+			        <p:menuitem value="Reconciliation"/>
+			        <p:menuitem value="Review"/>
+			        <p:menuitem value="Tax Positions"/>
+			        <p:menuitem value="ITR6 Preview"/>
+			        <p:menuitem value="Generate"/>
+
+			    </p:steps>								
+			</div>	
+			</p:outputPanel>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			<div class="card">
+				<p:growl id="messages" showDetail="true" />
+
+				<p:toolbar rendered="false">
+					<p:toolbarGroup>
+						<p:commandButton value="New" icon="pi pi-plus" actionListener="#{crudView.openNew}" update=":form:manage-product-content" oncomplete="PF('manageProductDialog').show()"
+							styleClass="ui-button-success" style="margin-right: .5rem">
+							<p:resetInput target=":form:manage-product-content" />
+						</p:commandButton>
+						<p:commandButton id="delete-products-button" value="#{crudView.deleteButtonMessage}" icon="pi pi-trash" actionListener="#{crudView.deleteSelectedProducts}"
+							styleClass="ui-button-danger" disabled="#{!crudView.hasSelectedProducts()}" update="@this">
+							<p:confirm header="Confirmation" message="Delete the selected products?" icon="pi pi-exclamation-triangle" />
+						</p:commandButton>
+					</p:toolbarGroup>
+					<p:toolbarGroup align="right">
+						<p:fileUpload mode="simple" skinSimple="true" label="Import" chooseIcon="pi pi-download" />
+						<p:commandButton value="Export" icon="pi pi-upload" styleClass="ui-button-help" ajax="false">
+							<p:dataExporter type="pdf" target="dt-products" fileName="products" />
+						</p:commandButton>
+					</p:toolbarGroup>
+				</p:toolbar>
+
+
+				<div class="card">
+					<p:tabView id="taxtabs">
+
+						<p:tab title="Tax computation">
+
+
+							<p:dataTable id="dt-products" widgetVar="dtProducts" var="product" value="#{crudView.products}" reflow="true" styleClass="products-table" selection="#{crudView.selectedProducts}"
+								rowKey="#{product.id}" paginator="true" rows="10" rowSelectMode="add" paginatorPosition="bottom">
+
+
+								<p:ajax event="rowSelect" update=":form:delete-products-button" />
+								<p:ajax event="rowUnselect" update=":form:delete-products-button" />
+								<p:ajax event="rowSelectCheckbox" update=":form:delete-products-button" />
+								<p:ajax event="rowUnselectCheckbox" update=":form:delete-products-button" />
+								<p:ajax event="toggleSelect" update=":form:delete-products-button" />
+
+								<p:column selectionMode="single" exportable="false"></p:column>
+
+								<p:column headerText="Nature" sortBy="#{product.name}">
+									<h:outputText value="#{product.name}" />
+								</p:column>
+								<p:column headerText="Amount" sortBy="#{product.price}">
+									<h:outputText value="#{product.price}" style="font-weight: 700">
+										<f:convertNumber currencySymbol="Rs" type="currency" />
+									</h:outputText>
+								</p:column>
+
+								<p:column headerText="TDS" sortBy="#{product.quantity}">
+									<h:outputText value="#{product.quantity}" style="font-weight: 700">
+										<f:convertNumber currencySymbol="Rs" type="currency" />
+									</h:outputText>
+								</p:column>
+
+								<p:column headerText="Income(Y/N)" sortBy="#{product.nonIncome}">
+									<h:outputText value="#{product.nonIncome}" style="font-weight: 700">
+									</h:outputText>
+								</p:column>
+
+								<p:column headerText="Act">
+									<h:outputText value="#{product.category}" />
+								</p:column>
+								<p:column headerText="Country">
+									<h:outputText value="#{product.country}" />
+								</p:column>
+								<p:column headerText="Section">
+									<h:outputText value="#{product.section}" />
+								</p:column>
+
+								<p:column headerText="Tax-rate">
+									<h:outputText value="#{product.rating}" style="font-weight: 700">
+									</h:outputText>
+								</p:column>
+								<p:column headerText="Tax-amount">
+									<h:outputText value="#{product.taxAmount}" style="font-weight: 700">
+										<f:convertNumber currencySymbol="Rs" type="currency" />
+									</h:outputText>
+								</p:column>
+								<p:column headerText="Change">
+									<h:outputText value="#{product.reason}" />
+								</p:column>
+
+
+								<p:column exportable="false">
+									<p:commandButton icon="pi pi-pencil" update=":form:manage-product-content" oncomplete="PF('manageProductDialog').show()"
+										styleClass="edit-button rounded-button ui-button-success" process="@this">
+										<f:setPropertyActionListener value="#{product}" target="#{crudView.selectedProduct}" />
+										<p:resetInput target=":form:manage-product-content" />
+									</p:commandButton>
+									<p:commandButton class="ui-button-warning rounded-button" icon="pi pi-trash" process="@this" oncomplete="PF('deleteProductDialog').show()">
+										<f:setPropertyActionListener value="#{product}" target="#{crudView.selectedProduct}" />
+									</p:commandButton>
+								</p:column>
+
+							</p:dataTable>
+
+
+						</p:tab>
+
+						<p:tab title="DTAA">
+
+							<p:dataTable id="dt-dtaa" widgetVar="dtDtaa" var="product" value="#{ref.dtaa}" styleClass="products-table" paginator="true" rows="10" paginatorPosition="bottom">
+
+								int countryCode ;
+								String country ;
+								String nature ;
+
+								double taxRate1 ;
+								double taxRate2 ;
+
+								<p:column headerText="Country Code" sortBy="#{product.countryCode}">
+									<h:outputText value="#{product.countryCode}" />
+								</p:column>
+
+								<p:column headerText="Country" sortBy="#{product.country}">
+									<h:outputText value="#{product.country}" />
+								</p:column>
+
+								<p:column headerText="Nature" sortBy="#{product.nature}">
+									<h:outputText value="#{product.nature}" />
+								</p:column>
+
+								<p:column headerText="Tax Rate 1" sortBy="#{product.taxRate1}">
+									<h:outputText value="#{product.taxRate1}" />
+								</p:column>
+
+
+								<p:column headerText="Tax Rate 2" sortBy="#{product.taxRate2}">
+									<h:outputText value="#{product.taxRate2}" />
+								</p:column>
+
+							</p:dataTable>
+
+						</p:tab>
+
+						<p:tab title="ITAA">
+
+							<p:dataTable id="dt-itaa" widgetVar="dtItaa" var="product" value="#{ref.itaa}" styleClass="products-table" paginator="true" rows="10" paginatorPosition="bottom">
+
+
+
+								<p:column headerText="Sr No" sortBy="#{product.srNo}">
+									<h:outputText value="#{product.srNo}" />
+								</p:column>
+
+								<p:column headerText="Nature" sortBy="#{product.nature}">
+									<h:outputText value="#{product.nature}" />
+								</p:column>
+
+								<p:column headerText="Section" sortBy="#{product.section}">
+									<h:outputText value="#{product.section}" />
+								</p:column>
+
+								<p:column headerText="Tax Rate" sortBy="#{product.taxRate}">
+									<h:outputText value="#{product.taxRate}" />
+								</p:column>
+
+							</p:dataTable>
+
+
+						</p:tab>
+
+					</p:tabView>
+
+				</div>
+
+
+
+
+				<p:dialog header="Tax Details" showEffect="fade" modal="true" widgetVar="manageProductDialog" responsive="true">
+					<p:outputPanel id="manage-product-content" class="ui-fluid">
+						<p:outputPanel rendered="#{not empty crudView.selectedProduct}">
+							<p:graphicImage name="images/product/#{crudView.selectedProduct.image}" library="demo" styleClass="product-image" rendered="#{not empty crudView.selectedProduct.image}" />
+
+							<div class="p-field">
+								<p:outputLabel for="name2">Nature</p:outputLabel>
+								<p:selectOneMenu id="name2" value="#{crudView.selectedProduct.name}" layout="responsive" valueChangeListener="#{crudView.incomeSelected}">
+									<f:selectItems value="#{ref.defNatures}" var="nature" itemLabel="#{nature}" itemValue="#{nature}" />
+									<p:ajax process="@this" update="manage-product-content" />
+								</p:selectOneMenu>
+
+							</div>
+
+
+							<div class="p-formgrid p-grid">
+								<div class="p-field p-col">
+									<p:outputLabel for="price">Amount</p:outputLabel>
+									<p:inputNumber id="price" value="#{crudView.selectedProduct.price}" decimalSeparator="." thousandSeparator="," />
+								</div>
+
+								<div class="p-field p-col">
+									<p:outputLabel for="quantity">Tds</p:outputLabel>
+									<p:inputNumber id="quantity" value="#{crudView.selectedProduct.quantity}" decimalSeparator="." thousandSeparator="," />
+								</div>
+							</div>
+
+
+							<div class="p-field">
+								<p:toggleSwitch id="incometoggle" value="#{crudView.selectedProduct.nonIncome}" valueChangeListener="#{crudView.incomeSelected}">
+									<p:ajax process="@this" update="manage-product-content" />
+								</p:toggleSwitch>
+
+								<p:outputLabel for="incometoggle"> Income (Y/N) </p:outputLabel>
+							</div>
+
+
+
+
+
+							<p:outputPanel id="taxcomputationpanel" rendered="#{crudView.selectedProduct.nonIncome}">
+								<p class="p-field">
+									<div class="p-field">
+										<p:outputLabel for="category">ACT</p:outputLabel>
+										<p:selectOneRadio id="category" value="#{crudView.selectedProduct.category}" layout="responsive" columns="2" valueChangeListener="#{crudView.categorySelected}">
+											<f:selectItem itemLabel="ITAA" itemValue="ITAA" />
+											<f:selectItem itemLabel="DTAA" itemValue="DTAA" />
+											<f:selectItem itemLabel="BOTH" itemValue="BOTH" />
+											<f:selectItem itemLabel="NON-TAXABLE" itemValue="NON-TAXABLE" />
+											<p:ajax process="@this" update="manage-product-content" />
+
+										</p:selectOneRadio>
+									</div>
+
+
+									<div class="p-field">
+										<p:outputLabel value="Country" for="country" rendered="#{crudView.countryEnabled}" />
+										<p:autoComplete id="country" value="#{crudView.selectedProduct.country}" rendered="#{crudView.countryEnabled}" completeMethod="#{crudView.completeCountry}" scrollHeight="250"
+											dropdown="true" valueChangeListener="#{crudView.countrySelected}">
+
+											<p:ajax process="@this" update="manage-product-content" />
+
+										</p:autoComplete>
+									</div>
+
+
+									<div class="p-field">
+										<p:outputLabel for="section">Section</p:outputLabel>
+										<p:inputText id="section" value="#{crudView.selectedProduct.section}" />
+									</div>
+
+
+									<div class="p-formgrid p-grid">
+										<div class="p-field p-col">
+											<p:outputLabel for="taxrate">Tax-Rate</p:outputLabel>
+											<p:inputNumber id="taxrate" value="#{crudView.selectedProduct.rating}" />
+										</div>
+
+										<div class="p-field p-col">
+											<p:outputLabel for="taxAmount">Tax-Amount</p:outputLabel>
+											<p:inputNumber id="taxAmount" value="#{crudView.selectedProduct.taxAmount}" decimalSeparator="." thousandSeparator="," />
+										</div>
+									</div>
+
+									<div class="p-field">
+										<p:outputLabel for="reason">Reason</p:outputLabel>
+										<p:selectOneRadio id="reason" value="#{crudView.selectedProduct.reason}" layout="responsive" columns="2" valueChangeListener="#{crudView.incomeSelected}">
+											<f:selectItem itemLabel="TAX-RATE1" itemValue="TAX-RATE1" />
+											<f:selectItem itemLabel="TAX-RATE2" itemValue="TAX-RATE2" />
+										</p:selectOneRadio>
+									</div>
+
+									<div class="p-field">
+										<p:outputLabel for="comment">Comment</p:outputLabel>
+										<p:inputText id="comment" value="#{crudView.selectedProduct.description}" />
+									</div>
+
+
+								</p>
+							</p:outputPanel>
+
+
+						</p:outputPanel>
+					</p:outputPanel>
+
+					<f:facet name="footer">
+						<p:commandButton value="Save" icon="pi pi-check" actionListener="#{crudView.saveProduct}" update="manage-product-content" process="manage-product-content @this" />
+						<p:commandButton value="Cancel" icon="pi pi-times" onclick="PF('manageProductDialog').hide()" class="ui-button-secondary" />
+					</f:facet>
+				</p:dialog>
+
+				<p:confirmDialog widgetVar="deleteProductDialog" showEffect="fade" width="300" message="Delete the product?" header="Confirm" severity="warn">
+					<p:commandButton value="Yes" icon="pi pi-check" actionListener="#{crudView.deleteProduct}" process="@this" oncomplete="PF('deleteProductDialog').hide()" />
+					<p:commandButton value="No" type="button" styleClass="ui-button-secondary" icon="pi pi-times" onclick="PF('deleteProductDialog').hide()" />
+				</p:confirmDialog>
+
+				<p:confirmDialog global="true" showEffect="fade" width="300">
+					<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+					<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-secondary" icon="pi pi-times" />
+				</p:confirmDialog>
+			</div>
+		</h:form>
+
+
+
+	</h:body>
+</html>
+

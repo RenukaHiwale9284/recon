@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+ 
+ 
+  	<class name = "com.anemoi.itr.ListTemplate" table="listtemplate">
+    
+    	<id name = "listid" type = "int" column = "listid"> 
+			<generator class="identity"/> 
+		</id>      
+		               
+		<property name = "version"> 	<column name = "itr_version"/>	</property>
+		<property name = "tab"> 		<column name = "sheet"/>	</property>
+		<property name = "tableVar">    <column name = "table_name"/> </property>
+		<property name = "len"> 		<column name = "table_len"/></property>
+		<property name = "rowIdx">		<column name ="row_index" /></property>   
+		<property name = "tableTag">		<column name ="table_tag" /></property>   
+		<property name = "viewLen"> 		<column name = "view_len"/></property>
+		
+		 <list name="fieldList" cascade="all">  
+          	<key column="listid"></key>  
+          	<index column="col_num"></index>  
+         <one-to-many class="com.anemoi.itr.storage.TableVarFlyWeight"/>  
+         </list>  
+									
+  	</class>
+ 
+ 	<class name = "com.anemoi.itr.storage.TableVarFlyWeight" table = "listitem">  
+
+
+		<id name = "list_itemid" type = "int" column = "list_itemid"> 
+			<generator class="identity"/> 
+		</id>
+		      
+		<property name = "var_name"> <column name = "var_name"/>	</property>			
+		<property name = "description"> <column name = "description"/>	</property>
+		<property name = "data_type"> <column name = "data_type"/></property>
+		<property name = "col_index"> <column name = "col_index"/>	</property>
+		<property name = "validations"> <column name = "validations"/></property>
+		<property name = "tag"> <column name = "tag_name"/></property>
+
+				
+		<!-- 		
+      	 <many-to-one name = "list_data" class="com.anemoi.tax.ListTemplate" cascade="all" />
+         -->
+          
+   	</class>
+ 
+ 
+ 
+ 
+ 
+</hibernate-mapping>

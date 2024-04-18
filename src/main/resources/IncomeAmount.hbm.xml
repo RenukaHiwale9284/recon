@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.anemoi.recon.IncomeAmount" table="IncomeAmount">
+				
+		<id name = "id" type = "long" column = "transid"> 
+			<generator class="sequence"/>			 
+		</id> 
+		
+				
+		<property name="projectId">
+			<column name="projectId" />
+		</property>
+
+		<property name="partyId">
+			<column name="partyId" />
+		</property>
+		<property name="incomeType">
+			<column name="incomeType" />
+		</property>
+		<property name="tag">
+			<column name="tag" />
+		</property>
+
+		<property name="finalIncome">
+			<column name="finalIncome" />
+		</property>
+
+		<property name="finalTax">
+			<column name="finalTax" />
+		</property>
+
+		<property name="reason">
+			<column name="reason" />
+		</property>
+
+		<property name="source1Amount">
+			<column name="source1Amount" />
+		</property>
+		<property name="source2Amount">
+			<column name="source2Amount" />
+		</property>
+		<property name="source3Amount">
+			<column name="source3Amount" />
+		</property>
+		<property name="source4Amount">
+			<column name="source4Amount" />
+		</property>
+		<property name="source5Amount">
+			<column name="source5Amount" />
+		</property>
+
+		<property name="partyName">
+			<column name="partyName" />
+		</property>
+
+		<property name="nature">
+			<column name="nature" />
+		</property>
+
+		<property name="tdsDeposited">
+			<column name="tdsDeposited" />
+		</property>
+
+
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,62 @@
+^Form 26AS^
+
+File Creation Date^Permanent Account Number (PAN)^Current Status of PAN^Financial Year^Assessment Year^Name of Assessee^Address Line 1^Address Line 2^Address Line 3^Address Line 4^Address Line 5^Statecode^Pin Code
+18-11-2021^FFFFF9999F^ACTIVE^2019-2020^2020-2021^    NEW OLD & COMPANY INC^^^1209 OLD STREET^DELAWARE 19801^USA^^
+
+^PART A - Details of Tax Deducted at Source^
+Sr. No.^Name of Deductor^TAN of Deductor^^^^^Total Amount Paid / Credited(Rs.)^Total Tax Deducted(Rs.)^Total TDS Deposited(Rs.)
+1^VEY NEW CONSULTING INDIA PRIVATE LIMITED^MUMR99999R^^^^^21788068.00^2311278.00^2311278.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^31-Mar-2020^F^26-Jun-2020^-^13959552.00^1480829.00^1480829.00^
+^2^195^31-Mar-2020^F^10-Oct-2020^-^7828516.00^830449.00^830449.00^
+
+2^NEW COMPANY IN INDIA PRIVATE LIMITED^MUMR99999R^^^^^81299.00^8455.00^8455.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^22-Oct-2019^F^29-Jan-2020^-^81299.00^8455.00^8455.00^
+
+
+^PART A1 - Details of Tax Deducted at Source for 15G / 15H^
+Sr. No.^Name of Deductor^TAN of Deductor^^^^Total Amount Paid / Credited(Rs.)^Total Tax Deducted(Rs.)^Total TDS Deposited(Rs.)
+^^^*********** No Transactions Present **********^
+
+
+^PART A2 - Details of Tax Deducted at Source on Sale of Immovable Property u/s 194IA/ TDS on Rent of Property u/s 194IB / TDS on payment to resident contractors and professionals u/s 194M (For Seller/Landlord of Property/Payee of resident contractors and professionals)^
+Sr. No.^Acknowledgement Number^Name of Deductor^PAN of Deductor^Transaction Date^Total Transaction Amount(Rs.)^Total TDS Deposited(Rs.)
+^^^*********** No Transactions Present **********^
+
+
+^PART B - Details of Tax Collected at Source^
+Sr. No.^Name of Collector^TAN of Collector^^^^^Total Amount Paid / Debited(Rs.)^Total Tax Collected(Rs.)^Total TCS Deposited(Rs.)
+^^^*********** No Transactions Present **********^
+
+
+^PART C - Details of Tax Paid (other than TDS or TCS)^
+Sr. No.^Major Head^Minor Head^Tax(Rs.)^Surcharge(Rs.)^Education Cess(Rs.)^Others(Rs.)^Total Tax(Rs.)^BSR Code^Date of  Deposit^Challan Serial Number^Remarks
+^^^*********** No Transactions Present **********^
+
+
+^PART D - Details of Paid Refund^
+Sr. No.^Assessment Year^Mode^Refund Issued^Nature of Refund^Amount of Refund(Rs.)^Interest(Rs.)^Date of Payment^Remarks
+^^^*********** No Transactions Present **********^
+
+
+^PART E - Details of SFT Transaction^
+Sr. No.^Type of Transaction^Name of SFT Filer^Transaction Date^Amount(Rs.)^Remarks
+^^^*********** No Transactions Present **********^
+
+
+^PART F - Details of Tax Deducted at Source on Sale of Immovable Property u/s 194IA/ TDS on Rent of Property u/s 194IB /TDS on payment to resident contractors and professionals u/s 194M (For Buyer/Tenant of Property /Payer of resident contractors and professionals)^
+Sr. No.^Acknowledgement Number^Name of Deductee^PAN of Deductee^Transaction Date^Total Transaction Amount(Rs.)^Total TDS Deposited(Rs.)^Total Amount Deposited other than TDS(Rs.)
+^^^*********** No Transactions Present **********^
+
+
+^PART G - TDS Defaults (Processing of Statements)^
+Sr. No.^Financial Year^Short Payment^Short Deduction^Interest on  TDS Payments Default^Interest on TDS Deduction Default^Late Filing Fee u/s 234E^Interest u/s 220(2)^Total Default
+^^^*********** No Transactions Present **********^
+
+
+^PART H - Details of Turnover as per GSTR-3B^
+Sr. No.^GSTIN^Application Reference Number (ARN)^Date of filing^Return Period^Taxable Turnover^Total Turnover
+^^^*********** No Transactions Present **********^
+
+

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<h:outputStylesheet library="webjars" name="primeflex/2.0.0/primeflex.min.css" />
+	</h:head>
+
+	<h:body style="margin-left:50px">
+
+		<style type="text/css">
+			button.ui-button {
+			margin-right: .5rem;
+			}
+
+			.dialog-style-class {
+			width: 50%;
+			height: 70%;
+			}
+		</style>
+
+
+		<h4>Documents view</h4>
+
+		<h:form id="form">
+			<p:growl id="msgs" />
+
+			<div class="card">
+
+				<p:commandButton id="reset" value="Reset" icon="pi pi-search" action="#{nview.reset}" update="form pendingNames" />
+				<p:commandButton id="validate" value="Validate" icon="pi pi-search" action="#{nview.validate}" disabled="true" />
+				<p:commandButton id="approve" value="Approve" icon="pi pi-search" action="#{nview.approve}" disabled="true" />
+				<p:commandButton id="proceed" value="Proceed To next stage" icon="pi pi-search" ajax="false" action="#{nview.proceed}" disabled="false" />
+
+			</div>
+
+			
+
+			<div class="card">
+				<p:panelGrid columns="3" id="allNames">
+					
+					<p:column>			
+					<p:outputPanel>
+						<p:dataTable id="nameset" var="n" value="#{nview.nameset}" selectionMode="single" scrollable="true" scrollHeight="600" selection="#{nview.selectedNameSet}" editable="true"
+							style="margin-bottom:20px" rowKey="#{n.nameid}">
+
+							<f:facet name="header">
+								Final Company names
+							</f:facet>
+							<p:column headerText="26AS">
+								<h:outputText value="#{n.name26as}" />
+							</p:column>
+
+							<p:column headerText="Sales Register">
+								<h:outputText value="#{n.namesr}" />
+							</p:column>
+
+
+							<p:column headerText="Related Party">
+								<h:outputText value="#{n.namertp}" />
+							</p:column>
+
+
+						</p:dataTable>
+
+						<p:commandButton id="refresh2" value="Refresh" icon="pi pi-search" action="#{nview.refresh2}" update="form allNames" />
+
+					</p:outputPanel>
+				
+					</p:column>
+
+					<p:column>							
+					<p:outputPanel>
+						<p:dataTable id="pendingNames" var="n" value="#{nview.nameMap}" scrollable="true" scrollHeight="600" 
+						selection="#{nview.selectedNames}" editable="true"
+							style="margin-bottom:20px" rowKey="#{n.id}">
+
+    						<p:column selectionMode="multiple"/>
+    						
+							<p:ajax event="rowEdit" listener="#{nview.onRowEdit}" update="pendingNames" process="@this" />
+							<p:ajax event="rowEditCancel" listener="#{nview.onRowCancel}" update="pendingNames" process="@this" />
+
+
+							<f:facet name="header">
+								Company Name Mapping
+							</f:facet>
+
+							<p:column headerText="Company">
+								<h:outputText value="#{n.name}" />
+							</p:column>
+
+							<p:column headerText="Source">
+								<h:outputText value="#{n.source}" />
+							</p:column>
+
+
+							<p:column headerText="Available compaines">
+								<p:cellEditor>
+									<f:facet name="output">
+										<h:outputText value="#{n.newName}" />
+									</f:facet>
+									<f:facet name="input">
+
+										<p:selectOneMenu value="#{n.newName}" style="width:100%">
+											<f:selectItems value="#{nview.umap.primaryNames}" var="name" itemLabel="#{name}" itemValue="#{name}" />
+										</p:selectOneMenu>
+
+									</f:facet>
+								</p:cellEditor>
+							</p:column>
+
+							<p:column style="width:6rem">
+								<p:rowEditor editTitle="Edit Row" cancelTitle="Cancel Edit" saveTitle="Save Row" />
+							</p:column>
+
+							<p:column style="width:6rem">
+								
+							</p:column>
+
+						</p:dataTable>
+
+						<p:commandButton id="newcompanybutton" value="Add without Mapping" icon="pi pi-search"  action="#{nview.createNewName}" update="form pendingNames :form:allNames" />
+						<p:commandButton id="refresh" value="Add with Mappint" icon="pi pi-search" action="#{nview.refresh}" update="form pendingNames" />
+					</p:outputPanel>
+
+					</p:column>
+
+
+
+
+				</p:panelGrid>
+			</div>
+
+
+			
+
+
+		</h:form>
+
+
+	</h:body>
+</html>
+

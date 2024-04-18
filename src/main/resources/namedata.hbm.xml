@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+
+	<class name="com.anemoi.data.NameData" table="name_data">
+	
+		<id name="projectId" column="projectId" />
+
+		<property name="primaryName">
+			<column name="primaryName" />
+		</property>
+
+		<property name="namePairs">
+			<column name="namePairs" />
+		</property>
+
+
+
+	</class>
+
+</hibernate-mapping>

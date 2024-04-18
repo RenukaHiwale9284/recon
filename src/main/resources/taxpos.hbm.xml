@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.anemoi.tqm.TaxPosition" table="tax_positions">
+		
+	<!--	
+    private String name;			// nature 
+    private String description;			
+    private String image;
+    private double amount;			// Amount 
+    private String category;
+    private double tds;				// Tds
+    private InventoryStatus inventoryStatus;
+    private double rating;
+    private double orgRating ;		
+    private String reason;    
+    public boolean nonIncome ;
+    private String country ;
+    private double taxAmount ;
+    private String section ;
+	-->	
+		
+		<composite-id>
+			<key-property name="projectId" column="projectId" />
+			<key-property name="code" column="code" />
+		</composite-id>		
+			
+		<property name="id"> <column name="id" /> </property>			
+		<property name="name"> <column name="name" /> </property>
+		<property name="amount"> <column name="amount" /> </property>
+		<property name="category"> <column name="category" /> </property>
+		<property name="description"> <column name="description" /> </property>
+		<property name="tds"> <column name="tds" /> </property>
+		<property name="rating"> <column name="rating" /> </property>
+		<property name="orgRating"> <column name="orgRating" /> </property>
+		<property name="reason"> <column name="reason" /> </property>
+		<property name="nonIncome"> <column name="nonIncome" /> </property>
+		<property name="country"> <column name="country" /> </property>
+		<property name="taxAmount"> <column name="taxAmount" /> </property>
+		<property name="section"> <column name="section" /> </property>
+
+	</class>
+
+</hibernate-mapping>

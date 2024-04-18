@@ -1,0 +1,128 @@
+^Form 26AS^
+
+File Creation Date^Permanent Account Number (PAN)^Current Status of PAN^Financial Year^Assessment Year^Name of Assessee^Address Line 1^Address Line 2^Address Line 3^Address Line 4^Address Line 5^Statecode^Pin Code
+16-11-2021^FFFFF9999F^ACTIVE^2019-2020^2020-2021^    MGM LIMITED^NUMBER ONE^BRIDGE^LONDON^^UNITED KINGDOM^^
+
+^PART A - Details of Tax Deducted at Source^
+Sr. No.^Name of Deductor^TAN of Deductor^^^^^Total Amount Paid / Credited(Rs.)^Total Tax Deducted(Rs.)^Total TDS Deposited(Rs.)
+1^ACOITCPC^BLRA99999D^^^^^155737.98^64787.00^64787.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^03-Mar-2020^F^20-Jul-2020^-^155737.98^64787.00^64787.00^
+
+2^YYY MANAGEMENT CO.LTD.^BLRI99999E^^^^^1329800.00^132980.00^132980.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^12-Dec-2019^F^01-Feb-2020^-^1329800.00^132980.00^132980.00^
+
+3^ZZZ LIMITED^CALI99999B^^^^^1442042.00^144210.00^144210.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^26-Sep-2019^F^26-Oct-2019^-^1442042.00^144210.00^144210.00^
+
+4^AC PRIVATE LIMITED^MUMA99999E^^^^^1021048.00^106189.00^106189.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^17-Jan-2020^F^30-Jun-2020^-^339978.00^35358.00^35358.00^
+^2^195^04-Jan-2020^F^30-Jun-2020^-^342595.00^35630.00^35630.00^
+^3^195^09-Aug-2019^F^29-Oct-2019^-^338475.00^35201.00^35201.00^
+
+5^XY A.G^MUMD99999E^^^^^1937919.00^205576.00^205576.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^31-Mar-2020^F^22-May-2020^-^30236.75^3208.00^3208.00^
+^2^195^31-Mar-2020^F^22-May-2020^G^-30236.75^-3208.00^-3208.00^
+^3^195^31-Mar-2020^F^22-May-2020^-^29737.38^3155.00^3155.00^
+^4^195^31-Mar-2020^F^22-May-2020^G^-29737.38^-3155.00^-3155.00^
+^5^195^31-Mar-2020^F^22-May-2020^-^30236.75^3208.00^3208.00^
+^6^195^31-Mar-2020^F^22-May-2020^-^29801.96^3162.00^3162.00^
+^7^195^31-Mar-2020^F^22-May-2020^-^29737.38^3155.00^3155.00^
+^8^195^13-Nov-2019^F^28-Jan-2020^-^1848142.91^196051.00^196051.00^
+
+6^DII PRIVATE LIMITED^FFFFF9999F^^^^^370409.13^39293.00^39293.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^01-Dec-2019^F^24-Jan-2020^-^370409.13^39293.00^39293.00^
+
+7^DI PRIVATE LIMITED^MUMD99999C^^^^^430260.18^45642.00^45642.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^09-Jan-2020^F^22-May-2020^-^143354.07^15207.00^15207.00^
+^2^195^09-Jan-2020^F^22-May-2020^-^286906.11^30435.00^30435.00^
+
+8^DCC PRIVATE LIMITED^MUMG99999F^^^^^6181961.56^655783.00^655783.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^31-Mar-2020^F^22-May-2020^-^9912.46^1052.00^1052.00^
+^2^195^31-Mar-2020^F^22-May-2020^-^10078.92^1069.00^1069.00^
+^3^195^31-Mar-2020^F^22-May-2020^G^-10078.92^-1069.00^-1069.00^
+^4^195^31-Mar-2020^F^22-May-2020^-^9912.46^1052.00^1052.00^
+^5^195^31-Mar-2020^F^22-May-2020^G^-9912.46^-1052.00^-1052.00^
+^6^195^31-Mar-2020^F^22-May-2020^-^10078.92^1069.00^1069.00^
+^7^195^31-Mar-2020^F^22-May-2020^-^9933.99^1054.00^1054.00^
+^8^195^13-Jan-2020^F^22-May-2020^-^2212160.63^234666.00^234666.00^
+^9^195^01-Dec-2019^F^24-Jan-2020^-^2983870.66^316529.00^316529.00^
+^10^195^01-Dec-2019^F^24-Jan-2020^-^956004.90^101413.00^101413.00^
+
+9^IS LIMITED^MUMD99999D^^^^^2242460.00^244902.00^244902.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^06-Feb-2020^F^01-Jun-2020^-^2242460.00^244902.00^244902.00^
+
+10^I LIMITED^MUMI99999E^^^^^777723.00^77773.00^77773.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^21-Jun-2019^F^05-Aug-2019^-^777723.00^77773.00^77773.00^
+
+11^JMF LIMITED^MUMJ99999B^^^^^1751995.00^182208.00^182208.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^09-Sep-2019^F^29-Oct-2019^-^1751995.00^182208.00^182208.00^
+
+12^SBI CAPITAL MARKETS LTD.^MUMS99999A^^^^^450610.00^187454.00^187454.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^22-Nov-2019^F^30-Jan-2020^-^450610.00^187454.00^187454.00^
+
+13^SG ANALYTICS PRIVATE LIMITED^PNES99999G^^^^^0.00^0.00^0.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^13-Aug-2019^F^26-Oct-2019^-^1064120.00^106412.00^106412.00^
+^2^195^13-Aug-2019^F^26-Oct-2019^-^0.00^0.00^0.00^
+^3^195^13-Aug-2019^F^26-Oct-2019^B^-1064120.00^-106412.00^-106412.00^
+^4^195^13-Aug-2019^F^26-Oct-2019^-^1064120.00^106412.00^106412.00^
+^5^195^13-Aug-2019^F^26-Oct-2019^B^-1064120.00^-106412.00^-106412.00^
+
+
+^PART A1 - Details of Tax Deducted at Source for 15G / 15H^
+Sr. No.^Name of Deductor^TAN of Deductor^^^^Total Amount Paid / Credited(Rs.)^Total Tax Deducted(Rs.)^Total TDS Deposited(Rs.)
+^^^*********** No Transactions Present **********^
+
+
+^PART A2 - Details of Tax Deducted at Source on Sale of Immovable Property u/s 194IA/ TDS on Rent of Property u/s 194IB / TDS on payment to resident contractors and professionals u/s 194M (For Seller/Landlord of Property/Payee of resident contractors and professionals)^
+Sr. No.^Acknowledgement Number^Name of Deductor^PAN of Deductor^Transaction Date^Total Transaction Amount(Rs.)^Total TDS Deposited(Rs.)
+^^^*********** No Transactions Present **********^
+
+
+^PART B - Details of Tax Collected at Source^
+Sr. No.^Name of Collector^TAN of Collector^^^^^Total Amount Paid / Debited(Rs.)^Total Tax Collected(Rs.)^Total TCS Deposited(Rs.)
+^^^*********** No Transactions Present **********^
+
+
+^PART C - Details of Tax Paid (other than TDS or TCS)^
+Sr. No.^Major Head^Minor Head^Tax(Rs.)^Surcharge(Rs.)^Education Cess(Rs.)^Others(Rs.)^Total Tax(Rs.)^BSR Code^Date of  Deposit^Challan Serial Number^Remarks
+^^^*********** No Transactions Present **********^
+
+
+^PART D - Details of Paid Refund^
+Sr. No.^Assessment Year^Mode^Refund Issued^Nature of Refund^Amount of Refund(Rs.)^Interest(Rs.)^Date of Payment^Remarks
+1^2018-19^ECS                 ^-^PAN^64787.0^90950.0^04-Mar-2020^-
+
+
+^PART E - Details of SFT Transaction^
+Sr. No.^Type of Transaction^Name of SFT Filer^Transaction Date^Amount(Rs.)^Remarks
+^^^*********** No Transactions Present **********^
+
+
+^PART F - Details of Tax Deducted at Source on Sale of Immovable Property u/s 194IA/ TDS on Rent of Property u/s 194IB /TDS on payment to resident contractors and professionals u/s 194M (For Buyer/Tenant of Property /Payer of resident contractors and professionals)^
+Sr. No.^Acknowledgement Number^Name of Deductee^PAN of Deductee^Transaction Date^Total Transaction Amount(Rs.)^Total TDS Deposited(Rs.)^Total Amount Deposited other than TDS(Rs.)
+^^^*********** No Transactions Present **********^
+
+
+^PART G - TDS Defaults (Processing of Statements)^
+Sr. No.^Financial Year^Short Payment^Short Deduction^Interest on  TDS Payments Default^Interest on TDS Deduction Default^Late Filing Fee u/s 234E^Interest u/s 220(2)^Total Default
+^^^*********** No Transactions Present **********^
+
+
+^PART H - Details of Turnover as per GSTR-3B^
+Sr. No.^GSTIN^Application Reference Number (ARN)^Date of filing^Return Period^Taxable Turnover^Total Turnover
+^^^*********** No Transactions Present **********^
+
+

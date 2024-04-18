@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+			xmlns:h="http://java.sun.com/jsf/html" 
+				xmlns:f="http://java.sun.com/jsf/core" 
+					xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<h:outputStylesheet library="webjars" name="primeflex/2.0.0/primeflex.min.css" />
+	</h:head>
+
+	<h:body style="margin-left:50px">
+
+		<style type="text/css">
+			button.ui-button { margin-right: .5rem;}				
+			.dialog-style-class { width: 50%; height: 70%;}
+	
+			}
+		</style>
+
+		<h:form id="form">
+
+		<p:growl id="msgs" />
+
+			<div class="card"  >
+			<p:commandLink style="margin-right:20px;" id="reset" value="Reset" icon="pi pi-search" action="#{dview.reset}" 	disabled="true"			update="datatabs" />
+			<p:commandLink style="margin-right:20px;" id="validate" value="Validate" icon="pi pi-search" action="#{dview.validate}" disabled="true"		update="datatabs" />
+			<p:commandLink style="margin-right:20px;" id="approve" value="Approve" icon="pi pi-search" action="#{dview.approve}" disabled="true"		update="datatabs" />
+			<p:commandLink style="margin-right:20px;" id="proceed" value="Proceed To next stage" icon="pi pi-search" ajax="false"
+									action="#{dview.proceed}" disabled="false" update="datatabs"
+										oncomplete="window.open('rnames.xhtml')" />
+			
+			
+			
+			    <p:steps activeIndex="4">			    
+			        <p:menuitem value="Document Upload"/>
+			        <p:menuitem value="Name mapping" />
+			        <p:menuitem value="Reconciliation"/>
+			        <p:menuitem value="Review"/>
+			        <p:menuitem value="Tax Positions"/>
+			        <p:menuitem value="Generate"/>
+
+			    </p:steps>
+				
+								
+		</div>	
+					
+	    <div class="card">
+        <p:tabView id="datatabs">
+            <p:ajax event="tabChange" listener="#{dview.onTabChange}" update=":form:msgs"/>
+            <p:ajax event="tabClose" listener="#{dview.onTabClose}" update=":form:msgs"/>
+
+	
+			<p:tab title="Data upload">
+			
+			
+				<div class="card">
+    				<h:form enctype="multipart/form-data">
+    				
+   						<h:outputText value="Upload Files"/>    					
+
+						<div class="card">
+
+		        			<p:fileUpload listener="#{dview.handleFileUpload26AS}" label="26AS TXT"
+		        			  mode="advanced" dragDropSupport="false"
+		                      update="messages form:datatabs" sizeLimit="100000" fileLimit="100" allowTypes="/(\.|\/)(txt)$/"
+		                      accept=".txt"
+		                      >		      				      								      						                
+		                      </p:fileUpload>
+						</div>
+
+						<div class="card">							
+		        			<p:fileUpload listener="#{dview.handleFileUploadSR}" label="Sales Register EXCEL"
+		        			  mode="advanced" dragDropSupport="false"
+		                      update="messages form:datatabs" sizeLimit="100000" fileLimit="3" allowTypes="/(\.|\/)(xlsx)$/"
+		                      accept=".xlsx"
+		                  >
+		                      
+		                      </p:fileUpload>
+						</div>
+
+						<div class="card">									
+		        			<p:fileUpload listener="#{dview.handleFileUploadRPT}" label="RPT Excel"
+		        			  mode="advanced" dragDropSupport="false"
+		                      update="messages form:datatabs" sizeLimit="100000" fileLimit="3" allowTypes="/(\.|\/)(xlsx)$/"
+		                      accept=".xlsx" >
+		                      
+		                      </p:fileUpload>
+						</div>
+
+						<div class="card">									
+		        			<p:fileUpload listener="#{dview.handleFileUploadITR}" label="ITR6 XML"
+		        			  mode="advanced" dragDropSupport="false"
+		                      update="messages" sizeLimit="100000" fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
+		                      validateContentType="true" accept=".xml"
+		                      onupload="return confirm('Are you sure?')">
+		                      
+		                      </p:fileUpload>
+						</div>
+		
+		        		<p:growl id="messages" showDetail="true"/>
+
+    				</h:form>
+				</div>
+				
+				
+			
+			</p:tab>		
+
+
+
+			
+            <p:tab title="Party-26AS" id="tabs">
+                <p class="p-m-0">
+                                
+			    <div class="card" id="partydiv">
+			        <p:dataTable id="parttable" var="p" value="#{dview.partydata}" editable="true" style="margin-bottom:20px"
+			        
+			         rows="10"
+                     paginator="true"
+                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                     currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                     rowsPerPageTemplate="5,10,{ShowAll|'All'}"
+			         paginatorAlwaysVisible="false"
+			         paginatorPosition="bottom" >			        >
+			
+			            <p:ajax event="rowEdit" listener="#{dview.onRowEditPartyData}" update=":form:msgs"/>
+			            <p:ajax event="rowEditCancel" listener="#{dview.onRowCancelPartyData}" update=":form:msgs"/>
+			
+			
+			            <p:column headerText="Sr.No." sortBy="#{p.sr_no}" filterBy="#{p.sr_no}">
+			                <p:cellEditor>
+			                    <f:facet name="output">
+			                        <h:outputText value="#{p.sr_no}"/>
+			                    </f:facet>
+			                    <f:facet name="input">
+			                        <p:inputText id="modelInput" value="#{p.sr_no}" style="width:100%"/>
+			                    </f:facet>
+			                </p:cellEditor>
+			            </p:column>
+			
+			            <p:column headerText="Party Name" sortBy="#{p.partyName}" filterBy="#{p.partyName}">
+			                <p:cellEditor>
+			                    <f:facet name="output">
+			                        <h:outputText value="#{p.partyName}"/>
+			                    </f:facet>
+			                    <f:facet name="input">
+			                        <p:inputText value="#{p.partyName}" style="width:100%" label="Name"/>
+			                    </f:facet>
+			                </p:cellEditor>
+			            </p:column>
+
+			            <p:column headerText="TAN" sortBy="#{p.tan}" filterBy="#{p.tan}">
+			                <p:cellEditor>
+			                    <f:facet name="output">
+			                        <h:outputText value="#{p.tan}"/>
+			                    </f:facet>
+			                    <f:facet name="input">
+			                        <p:inputText value="#{p.tan}" style="width:100%" label="Name"/>
+			                    </f:facet>
+			                </p:cellEditor>
+			            </p:column>
+						
+			
+			            <p:column headerText="Total Amount Credited">
+			                <p:cellEditor>
+			                    <f:facet name="output">
+			                        <h:outputText value="#{p.tac}">
+			                            <f:convertNumber type="currency" currencySymbol="rs" currencyCode="INR"/>
+			                        </h:outputText>
+			                    </f:facet>
+			                    <f:facet name="input">
+			                        <p:inputNumber value="#{p.tac}" style="width:100%" label="Total Amount Credited"/>
+			                    </f:facet>
+			                </p:cellEditor>
+			            </p:column>
+	
+
+			            <p:column headerText="Total Tax Deducted">
+			                <p:cellEditor>
+			                    <f:facet name="output">
+			                        <h:outputText value="#{p.ttd}">
+			                            <f:convertNumber type="currency" currencySymbol="rs" currencyCode="INR"/>
+			                        </h:outputText>
+			                    </f:facet>
+			                    <f:facet name="input">
+			                        <p:inputNumber value="#{p.ttd}" style="width:100%" label="Total Tax Deducted"/>
+			                    </f:facet>
+			                </p:cellEditor>
+			            </p:column>
+
+
+			            <p:column headerText="Total TDS Deposited">
+			                <p:cellEditor>
+			                    <f:facet name="output">
+			                        <h:outputText value="#{p.tdsdeposited}">
+			                            <f:convertNumber type="currency" currencySymbol="rs" currencyCode="INR"/>
+			                        </h:outputText>
+			                    </f:facet>
+			                    <f:facet name="input">
+			                        <p:inputNumber value="#{p.tdsdeposited}" style="width:100%" label="Total TDS Deposited" />
+			                    </f:facet>
+			                </p:cellEditor>
+			            </p:column>
+
+
+			
+			            <p:column style="width:6rem">
+			                <p:rowEditor editTitle="Edit Row" cancelTitle="Cancel Edit" saveTitle="Save Row"/>
+			            </p:column>
+			        </p:dataTable>
+			    </div>
+                
+                
+                
+                </p>
+            </p:tab>
+
+
+
+
+
+
+
+
+
+
+
+            <p:tab title="Sales Register" closable="true">
+                <p class="p-m-0">
+
+
+
+			    <div class="card">
+			        <p:dataTable id="salestable" var="p" value="#{dview.saledata}" editable="true" style="margin-bottom:20px"
+			         rows="10"
+                     paginator="true"
+                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                     currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                     rowsPerPageTemplate="5,10,{ShowAll|'All'}"
+                     paginatorAlwaysVisible="false"
+			         paginatorPosition="bottom"
+                     
+                     >
+			
+			            <p:ajax event="rowEdit" listener="#{dview.onRowEditSR}" update=":form:msgs"/>
+			            <p:ajax event="rowEditCancel" listener="#{dview.onRowCancelSR}" update=":form:msgs"/>
+			
+			
+			            <p:column headerText="Sr.No." sortBy="#{p.srNo}" filterBy="#{p.srNo}">
+			                <p:cellEditor>
+			                    <f:facet name="output">
+			                        <h:outputText value="#{p.srNo}"/>
+			                    </f:facet>
+			                    <f:facet name="input">
+			                        <p:inputText id="modelInput" value="#{p.srNo}" style="width:100%"/>
+			                    </f:facet>
+			                </p:cellEditor>
+			            </p:column>
+			
+			            <p:column headerText="Party Name" sortBy="#{p.partyName}" filterBy="#{p.partyName}">
+			                <p:cellEditor>
+			                    <f:facet name="output">
+			                        <h:outputText value="#{p.partyName}"/>
+			                    </f:facet>
+			                    <f:facet name="input">
+			                        <p:inputText value="#{p.partyName}" style="width:100%" label="Name"/>
+			                    </f:facet>
+			                </p:cellEditor>
+			            </p:column>
+
+
+			            <p:column headerText="Invoice Number" sortBy="#{p.invoiceNumber}" filterBy="#{p.invoiceNumber}">
+			                <p:cellEditor>
+			                    <f:facet name="output">
+			                        <h:outputText value="#{p.invoiceNumber}"/>
+			                    </f:facet>
+			                    <f:facet name="input">
+			                        <p:inputText value="#{p.invoiceNumber}" style="width:100%" label="Invoice"/>
+			                    </f:facet>
+			                </p:cellEditor>
+			            </p:column>
+			            
+						
+			
+			            <p:column headerText="Invoice Amount">
+			                <p:cellEditor>
+			                    <f:facet name="output">
+			                        <h:outputText value="#{p.invoiceAmount}">
+			                            <f:convertNumber type="currency" currencySymbol="rs" currencyCode="INR"/>
+			                        </h:outputText>
+			                    </f:facet>
+			                    <f:facet name="input">
+			                        <p:inputNumber value="#{p.invoiceAmount}" style="width:100%" label="Total Invoice Amount"/>
+			                    </f:facet>
+			                </p:cellEditor>
+			            </p:column>
+	
+
+			            <p:column headerText="Tax" sortBy="#{p.tax}" filterBy="#{p.tax}">
+			                <p:cellEditor>
+			                    <f:facet name="output">
+			                        <h:outputText value="#{p.tax}"/>
+			                    </f:facet>
+			                    <f:facet name="input">
+			                        <p:inputText value="#{p.tax}" style="width:100%" label="Name"/>
+			                    </f:facet>
+			                </p:cellEditor>
+			            </p:column>
+
+
+
+						 <p:column headerText="Currency" sortBy="#{p.currency}" filterBy="#{p.currency}">
+			                <p:cellEditor>
+			                    <f:facet name="output">
+			                        <h:outputText value="#{p.currency}"/>
+			                    </f:facet>
+			                    <f:facet name="input">
+			                        <p:inputText value="#{p.currency}" style="width:100%" label="Currency"/>
+			                    </f:facet>
+			                </p:cellEditor>
+			            </p:column>
+
+			
+			            <p:column style="width:6rem">
+			                <p:rowEditor editTitle="Edit Row" cancelTitle="Cancel Edit" saveTitle="Save Row"/>
+			            </p:column>
+			        </p:dataTable>
+			    </div>
+
+
+
+
+
+
+                </p>
+            </p:tab>
+            <p:tab title="Related Party" closable="true">
+                <p class="p-m-0">
+                
+                
+			    <div class="card">
+			        <p:dataTable id="rpttable" var="p" value="#{dview.rptdata}" editable="true" style="margin-bottom:20px"
+			         rows="10"
+                     paginator="true"
+                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                     currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                     rowsPerPageTemplate="5,10,{ShowAll|'All'}"
+                     paginatorAlwaysVisible="false"
+			         paginatorPosition="bottom"
+                     
+                     >
+                     
+			
+			            <p:ajax event="rowEdit" listener="#{dview.onRowEditRPT}" update=":form:msgs"/>
+			            <p:ajax event="rowEditCancel" listener="#{dview.onRowCancelRPT}" update=":form:msgs"/>
+			
+			
+			            <p:column headerText="Sr.No." sortBy="#{p.srNo}" filterBy="#{p.srNo}">
+			                <p:cellEditor>
+			                    <f:facet name="output">
+			                        <h:outputText value="#{p.srNo}"/>
+			                    </f:facet>
+			                    <f:facet name="input">
+			                        <p:inputText id="modelInput" value="#{p.srNo}" style="width:100%"/>
+			                    </f:facet>
+			                </p:cellEditor>
+			            </p:column>
+			
+			            <p:column headerText="Party Name" sortBy="#{p.partyName}" filterBy="#{p.partyName}">
+			                <p:cellEditor>
+			                    <f:facet name="output">
+			                        <h:outputText value="#{p.partyName}"/>
+			                    </f:facet>
+			                    <f:facet name="input">
+			                        <p:inputText value="#{p.partyName}" style="width:100%" label="Name"/>
+			                    </f:facet>
+			                </p:cellEditor>
+			            </p:column>
+
+			            <p:column headerText="Amount">
+			                <p:cellEditor>
+			                    <f:facet name="output">
+			                        <h:outputText value="#{p.amount}">
+			                            <f:convertNumber type="currency" currencySymbol="rs" currencyCode="INR"/>
+			                        </h:outputText>
+			                    </f:facet>
+			                    <f:facet name="input">
+			                        <p:inputNumber value="#{p.amount}" style="width:100%" label="Total Amount"/>
+			                    </f:facet>
+			                </p:cellEditor>
+			            </p:column>
+	
+			
+			            <p:column style="width:6rem">
+			                <p:rowEditor editTitle="Edit Row" cancelTitle="Cancel Edit" saveTitle="Save Row"/>
+			            </p:column>
+			        </p:dataTable>
+			    </div>
+
+
+
+                </p>                
+            </p:tab>
+            
+            
+            
+            
+            <p:tab title="Refund data" closable="true">
+				
+				
+							    <div class="card">
+			        <p:dataTable id="regundtable" var="p" value="#{dview.refunddata}" editable="true" style="margin-bottom:20px"
+			        
+			         rows="10"
+                     paginator="true"
+                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                     currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                     rowsPerPageTemplate="5,10,{ShowAll|'All'}"
+			         widgetVar="RefundTable"
+			         paginatorAlwaysVisible="false"
+			         paginatorPosition="bottom"
+			        
+			        >
+			
+			            <p:ajax event="rowEdit" listener="#{dview.onRowEditRefundData}" update=":form:msgs"/>
+			            <p:ajax event="rowEditCancel" listener="#{dview.onRowCancelRefundData}" update=":form:msgs"/>
+			 
+			
+			            <p:column headerText="Sr.No." sortBy="#{p.srNo}" filterBy="#{p.srNo}">
+			                <p:cellEditor>
+			                    <f:facet name="output">
+			                        <h:outputText value="#{p.srNo}"/>
+			                    </f:facet>
+			                    <f:facet name="input">
+			                        <p:inputText id="modelInput" value="#{p.srNo}" style="width:100%"/>
+			                    </f:facet>
+			                </p:cellEditor>
+			            </p:column>
+			
+			            <p:column headerText="Assessment Year" sortBy="#{p.assessmentYear}" filterBy="#{p.assessmentYear}">
+			                <p:cellEditor>
+			                    <f:facet name="output">
+			                        <h:outputText value="#{p.assessmentYear}"/>
+			                    </f:facet>
+			                    <f:facet name="input">
+			                        <p:inputText value="#{p.assessmentYear}" style="width:100%" label="Name"/>
+			                    </f:facet>
+			                </p:cellEditor>
+			            </p:column>
+
+			            <p:column headerText="Mode" sortBy="#{p.mode}" filterBy="#{p.mode}">
+			                <p:cellEditor>
+			                    <f:facet name="output">
+			                        <h:outputText value="#{p.mode}"/>
+			                    </f:facet>
+			                    <f:facet name="input">
+			                        <p:inputText value="#{p.mode}" style="width:100%" label="Name"/>
+			                    </f:facet>
+			                </p:cellEditor>
+			            </p:column>
+
+
+			          
+			            <p:column headerText="nature" sortBy="#{p.nature}" filterBy="#{p.nature}">
+			                <p:cellEditor>
+			                    <f:facet name="output">
+			                        <h:outputText value="#{p.nature}"/>
+			                    </f:facet>
+			                    <f:facet name="input">
+			                        <p:inputText value="#{p.nature}" style="width:100%" label="Name"/>
+			                    </f:facet>
+			                </p:cellEditor>
+			            </p:column>
+
+						
+			            <p:column headerText="Amount of Refund">
+			                <p:cellEditor>
+			                    <f:facet name="output">
+			                        <h:outputText value="#{p.amountOfRefund}">
+			                            <f:convertNumber type="currency" currencySymbol="rs" currencyCode="INR"/>
+			                        </h:outputText>
+			                    </f:facet>
+			                    <f:facet name="input">
+			                        <p:inputNumber value="#{p.amountOfRefund}" style="width:100%" 
+			                        	label="Amount of Refund"/>
+			                    </f:facet>
+			                </p:cellEditor>
+			            </p:column>
+
+
+			            <p:column headerText="Interest">
+			                <p:cellEditor>
+			                    <f:facet name="output">
+			                        <h:outputText value="#{p.interest}">
+			                            <f:convertNumber type="currency" currencySymbol="rs" currencyCode="INR"/>
+			                        </h:outputText>
+			                    </f:facet>
+			                    <f:facet name="input">
+			                        <p:inputNumber value="#{p.interest}" style="width:100%" 
+			                        	label="Interest"/>
+			                    </f:facet>
+			                </p:cellEditor>
+			            </p:column>
+
+	
+			            <p:column headerText="Date of Refund" >
+			                <p:cellEditor>
+			                    <f:facet name="output">
+			                        <h:outputText value="#{p.remarks}"/>
+			                    </f:facet>
+			                    <f:facet name="input">
+			                        <p:inputText value="#{p.remarks}" style="width:100%" label="Remark"/>
+			                    </f:facet>
+			                </p:cellEditor>
+			            </p:column>
+									
+			            <p:column style="width:6rem">
+			                <p:rowEditor editTitle="Edit Row" cancelTitle="Cancel Edit" saveTitle="Save Row"/>
+			            </p:column>
+			            
+			        </p:dataTable>
+			    </div>
+                               
+               
+               
+            </p:tab>
+
+
+        </p:tabView>
+    </div>
+		
+		
+				</h:form>				
+			
+			
+	</h:body>
+</html>
+

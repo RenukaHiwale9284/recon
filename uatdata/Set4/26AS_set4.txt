@@ -1,0 +1,140 @@
+^Form 26AS^
+
+File Creation Date^Permanent Account Number (PAN)^Current Status of PAN^Financial Year^Assessment Year^Name of Assessee^Address Line 1^Address Line 2^Address Line 3^Address Line 4^Address Line 5^Statecode^Pin Code
+23-11-2021^FFFFF9999F^ACTIVE^2019-2020^2020-2021^    SOME CORPORATION^3500 SOME ROAD^SOME CITY^DELAWARE 19901^USA^^
+
+^PART A - Details of Tax Deducted at Source^
+Sr. No.^Name of Deductor^TAN of Deductor^^^^^Total Amount Paid / Credited(Rs.)^Total Tax Deducted(Rs.)^Total TDS Deposited(Rs.)
+1^THAT THIS PRIVATE LIMITED^CHEA99999A^^^^^997588.00^103749.00^103749.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^30-Mar-2020^F^01-Jun-2020^-^997588.00^103749.00^103749.00^
+
+2^ANOTHER LTD.^HYDA99999A^^^^^5970222.51^651948.30^651948.30^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^24-Jan-2020^F^02-Jul-2020^-^144433.42^15772.13^15772.13^
+^2^195^24-Jan-2020^F^02-Jul-2020^-^178200.00^19459.44^19459.44^
+^3^195^24-Jan-2020^F^02-Jul-2020^B^-178200.00^-19459.44^-19459.44^
+^4^195^24-Jan-2020^F^02-Jul-2020^-^577720.51^63087.08^63087.08^
+^5^195^24-Jan-2020^F^02-Jul-2020^B^-577720.51^-63087.08^-63087.08^
+^6^195^24-Jan-2020^F^02-Jul-2020^-^144433.42^15772.13^15772.13^
+^7^195^24-Jan-2020^F^02-Jul-2020^B^-144433.42^-15772.13^-15772.13^
+^8^195^24-Jan-2020^F^02-Jul-2020^-^577720.51^63087.08^63087.08^
+^9^195^24-Jan-2020^F^02-Jul-2020^B^-577720.51^-63087.08^-63087.08^
+^10^195^24-Jan-2020^F^02-Jul-2020^-^288860.26^31543.54^31543.54^
+^11^195^24-Jan-2020^F^02-Jul-2020^B^-288860.26^-31543.54^-31543.54^
+^12^195^24-Jan-2020^F^02-Jul-2020^-^144433.42^15772.13^15772.13^
+^13^195^24-Jan-2020^F^02-Jul-2020^B^-144433.42^-15772.13^-15772.13^
+^14^195^24-Jan-2020^F^02-Jul-2020^-^722153.85^78859.20^78859.20^
+^15^195^24-Jan-2020^F^02-Jul-2020^B^-722153.85^-78859.20^-78859.20^
+^16^195^24-Jan-2020^F^02-Jul-2020^-^288860.26^31543.54^31543.54^
+^17^195^24-Jan-2020^F^02-Jul-2020^B^-288860.26^-31543.54^-31543.54^
+^18^195^24-Jan-2020^F^02-Jul-2020^-^144433.42^15772.13^15772.13^
+^19^195^24-Jan-2020^F^02-Jul-2020^B^-144433.42^-15772.13^-15772.13^
+^20^195^24-Jan-2020^F^02-Jul-2020^-^178200.00^19459.44^19459.44^
+^21^195^24-Jan-2020^F^02-Jul-2020^-^577720.51^63087.08^63087.08^
+^22^195^24-Jan-2020^F^02-Jul-2020^-^144433.42^15772.13^15772.13^
+^23^195^24-Jan-2020^F^02-Jul-2020^-^577720.51^63087.08^63087.08^
+^24^195^24-Jan-2020^F^02-Jul-2020^-^288860.26^31543.54^31543.54^
+^25^195^24-Jan-2020^F^02-Jul-2020^-^144433.42^15772.13^15772.13^
+^26^195^24-Jan-2020^F^02-Jul-2020^-^722153.85^78859.20^78859.20^
+^27^195^24-Jan-2020^F^02-Jul-2020^-^288860.26^31543.54^31543.54^
+^28^195^26-Nov-2019^F^03-Feb-2020^-^129314.00^15852.17^15852.17^
+^29^195^26-Nov-2019^F^03-Feb-2020^-^580678.75^63410.12^63410.12^
+^30^195^26-Nov-2019^F^03-Feb-2020^B^-517269.00^-63410.12^-63410.12^
+^31^195^26-Nov-2019^F^03-Feb-2020^-^145166.39^15852.17^15852.17^
+^32^195^26-Nov-2019^F^03-Feb-2020^B^-129314.00^-15852.17^-15852.17^
+^33^195^26-Nov-2019^F^03-Feb-2020^-^580678.75^63410.12^63410.12^
+^34^195^26-Nov-2019^F^03-Feb-2020^B^-517269.00^-63410.12^-63410.12^
+^35^195^26-Nov-2019^F^03-Feb-2020^-^290339.38^31705.06^31705.06^
+^36^195^26-Nov-2019^F^03-Feb-2020^B^-258634.00^-31705.06^-31705.06^
+^37^195^26-Nov-2019^F^03-Feb-2020^-^145166.39^15852.17^15852.17^
+^38^195^26-Nov-2019^F^03-Feb-2020^B^-129314.00^-15852.17^-15852.17^
+^39^195^26-Nov-2019^F^03-Feb-2020^-^725871.43^79265.16^79265.16^
+^40^195^26-Nov-2019^F^03-Feb-2020^B^-646606.00^-79265.16^-79265.16^
+^41^195^26-Nov-2019^F^03-Feb-2020^-^290339.38^31705.06^31705.06^
+^42^195^26-Nov-2019^F^03-Feb-2020^B^-258634.00^-31705.06^-31705.06^
+^43^195^26-Nov-2019^F^03-Feb-2020^-^145166.39^15852.17^15852.17^
+^44^195^26-Nov-2019^F^03-Feb-2020^B^-129314.00^-15852.17^-15852.17^
+^45^195^26-Nov-2019^F^03-Feb-2020^-^517269.00^63410.12^63410.12^
+^46^195^26-Nov-2019^F^03-Feb-2020^-^129314.00^15852.17^15852.17^
+^47^195^26-Nov-2019^F^03-Feb-2020^-^517269.00^63410.12^63410.12^
+^48^195^26-Nov-2019^F^03-Feb-2020^-^258634.00^31705.06^31705.06^
+^49^195^26-Nov-2019^F^03-Feb-2020^-^129314.00^15852.17^15852.17^
+^50^195^26-Nov-2019^F^03-Feb-2020^-^646606.00^79265.16^79265.16^
+^51^195^26-Nov-2019^F^03-Feb-2020^-^258634.00^31705.06^31705.06^
+
+3^SOME GLOBAL MERCHANT PRIVATE LIMITED^JPRA99999A^^^^^831199.00^86445.00^86445.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^30-Sep-2019^F^04-Mar-2021^-^46708.00^4858.00^4858.00^
+^2^195^03-Aug-2019^F^04-Mar-2021^-^9580.00^996.00^996.00^
+^3^195^03-Aug-2019^F^04-Mar-2021^-^3065.00^319.00^319.00^
+^4^195^19-Apr-2019^F^19-Mar-2020^-^291493.00^30315.00^30315.00^
+^5^195^19-Apr-2019^F^19-Mar-2020^-^129722.00^13491.00^13491.00^
+^6^195^19-Apr-2019^F^19-Mar-2020^-^350631.00^36466.00^36466.00^
+
+4^SOME MANUFACTURING COMPANY LTD^MUMA99999A^^^^^3639056.83^378462.00^378462.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^07-Nov-2019^F^23-Jan-2020^-^7072.83^736.00^736.00^
+^2^195^07-Oct-2019^F^23-Jan-2020^-^14174.00^1475.00^1475.00^
+^3^195^07-Oct-2019^F^23-Jan-2020^-^771778.00^80264.00^80264.00^
+^4^195^23-Aug-2019^F^30-Oct-2019^-^465080.00^48368.00^48368.00^
+^5^195^06-Aug-2019^F^30-Oct-2019^-^543970.00^56573.00^56573.00^
+^6^195^23-Jul-2019^F^30-Oct-2019^-^990436.00^103005.00^103005.00^
+^7^195^23-Jul-2019^F^30-Oct-2019^-^669493.00^69627.00^69627.00^
+^8^195^29-May-2019^F^30-Jul-2019^-^177053.00^18414.00^18414.00^
+
+5^SOME OTHER THAN PRIVATE LIMITED^MUMA88888A^^^^^2175866.00^226290.00^226290.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^24-Sep-2019^F^21-Oct-2019^-^2175866.00^226290.00^226290.00^
+
+6^IMPORTANT PRIVATE LIMITED^RTKA99999A^^^^^1251843.00^130192.00^130192.00^
+^Sr. No.^Section^Transaction Date^Status of Booking^Date of Booking^Remarks^Amount Paid / Credited(Rs.)^Tax Deducted(Rs.)^TDS Deposited(Rs.)
+^1^195^23-Dec-2019^F^02-Feb-2020^-^208710.00^21706.00^21706.00^
+^2^195^23-Dec-2019^F^02-Feb-2020^-^1043133.00^108486.00^108486.00^
+
+
+^PART A1 - Details of Tax Deducted at Source for 15G / 15H^
+Sr. No.^Name of Deductor^TAN of Deductor^^^^Total Amount Paid / Credited(Rs.)^Total Tax Deducted(Rs.)^Total TDS Deposited(Rs.)
+^^^*********** No Transactions Present **********^
+
+
+^PART A2 - Details of Tax Deducted at Source on Sale of Immovable Property u/s 194IA/ TDS on Rent of Property u/s 194IB / TDS on payment to resident contractors and professionals u/s 194M (For Seller/Landlord of Property/Payee of resident contractors and professionals)^
+Sr. No.^Acknowledgement Number^Name of Deductor^PAN of Deductor^Transaction Date^Total Transaction Amount(Rs.)^Total TDS Deposited(Rs.)
+^^^*********** No Transactions Present **********^
+
+
+^PART B - Details of Tax Collected at Source^
+Sr. No.^Name of Collector^TAN of Collector^^^^^Total Amount Paid / Debited(Rs.)^Total Tax Collected(Rs.)^Total TCS Deposited(Rs.)
+^^^*********** No Transactions Present **********^
+
+
+^PART C - Details of Tax Paid (other than TDS or TCS)^
+Sr. No.^Major Head^Minor Head^Tax(Rs.)^Surcharge(Rs.)^Education Cess(Rs.)^Others(Rs.)^Total Tax(Rs.)^BSR Code^Date of  Deposit^Challan Serial Number^Remarks
+^^^*********** No Transactions Present **********^
+
+
+^PART D - Details of Paid Refund^
+Sr. No.^Assessment Year^Mode^Refund Issued^Nature of Refund^Amount of Refund(Rs.)^Interest(Rs.)^Date of Payment^Remarks
+^^^*********** No Transactions Present **********^
+
+
+^PART E - Details of SFT Transaction^
+Sr. No.^Type of Transaction^Name of SFT Filer^Transaction Date^Amount(Rs.)^Remarks
+^^^*********** No Transactions Present **********^
+
+
+^PART F - Details of Tax Deducted at Source on Sale of Immovable Property u/s 194IA/ TDS on Rent of Property u/s 194IB /TDS on payment to resident contractors and professionals u/s 194M (For Buyer/Tenant of Property /Payer of resident contractors and professionals)^
+Sr. No.^Acknowledgement Number^Name of Deductee^PAN of Deductee^Transaction Date^Total Transaction Amount(Rs.)^Total TDS Deposited(Rs.)^Total Amount Deposited other than TDS(Rs.)
+^^^*********** No Transactions Present **********^
+
+
+^PART G - TDS Defaults (Processing of Statements)^
+Sr. No.^Financial Year^Short Payment^Short Deduction^Interest on  TDS Payments Default^Interest on TDS Deduction Default^Late Filing Fee u/s 234E^Interest u/s 220(2)^Total Default
+^^^*********** No Transactions Present **********^
+
+
+^PART H - Details of Turnover as per GSTR-3B^
+Sr. No.^GSTIN^Application Reference Number (ARN)^Date of filing^Return Period^Taxable Turnover^Total Turnover
+^^^*********** No Transactions Present **********^
+
+

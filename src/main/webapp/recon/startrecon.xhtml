@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+			xmlns:h="http://java.sun.com/jsf/html" 
+				xmlns:f="http://java.sun.com/jsf/core" 
+					xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<h:outputStylesheet library="webjars" name="primeflex/2.0.0/primeflex.min.css" />
+	</h:head>
+
+	<h:body style="margin-left:50px">
+
+		<style type="text/css">
+			button.ui-button {
+								margin-right: .5rem;
+							}
+				
+			.dialog-style-class {
+			width: 50%;
+			height: 70%;
+			
+			.centered {
+				position:relative;
+				height: 100px;
+				margin:0 auto;
+				padding: 10% 0;
+				}
+			}
+		</style>
+
+		<h:form id="form">
+
+		<p:growl id="msgs" />
+
+		<h3>Start Reconcliation</h3>
+		
+			<div class="card">								
+				<p:inputText value="#{dview.projectId}" label="Project Id"/>
+							
+				<p:commandButton id="loadData" value="Start Reconciliation" 
+									icon="pi pi-search" action="#{dview.loadData}" 
+										oncomplete="window.open('rdata.xhtml')">					
+				</p:commandButton>
+			</div>	
+		</h:form>	
+			
+	</h:body>
+</html>
+
